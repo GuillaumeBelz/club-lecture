@@ -1,4 +1,8 @@
 
+> Merci à Ksass'Peuk pour ce resumé.
+
+# Chapitre 1 - Code propre
+
 "Coder Proprement" est un livre de Robert C. Martin, dît "Oncle Bob". Il est principalement connu pour ses contributions 
 à propos de la méthode Agile, de la gestion de projet et des principes SOLID. Ses autres livres sont également intéressants, 
 il ne faut pas hésiter à les lire aussi.
@@ -15,8 +19,7 @@ Avec pour finalité d'être capable :
 - d'écrire du bon code,
 - de transformer du mauvaise code en bon code.
 
-
-# Chapitre 1 - Code propre
+## Introduction
 
 Le but de ce chapitre est de commencer à répondre à la question "qu'est ce qu'un code propre ?", à travers trois 
 questions générales:
