@@ -66,7 +66,7 @@ Le premier livre choisi est "Coder proprement", de Robert C. Martin. Les seances
 
 Voici les résumés des chapitres et des discussions :
 
-- [Chapitre 1 : Code propre](chapitre_01.md). Séance du 16 octobre.
-- [Chapitre 2 : Noms significatifs](chapitre_02.md). Séance du 30 octobre.
-- [Chapitre 3 : Fonctions](chapitre_03.md). Séance du 6 novembre.
-- Chapitre 4 : Commentaires. Prochaine séance le 13 novembre.
+- [Chapitre 1 - Code propre](chapitre_01.md). Séance du 16 octobre.
+- [Chapitre 2 - Noms significatifs](chapitre_02.md). Séance du 30 octobre.
+- [Chapitre 3 - Fonctions](chapitre_03.md). Séance du 6 novembre.
+- Chapitre 4 - Commentaires. Prochaine séance le 13 novembre.
