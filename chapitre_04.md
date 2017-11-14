@@ -1,7 +1,7 @@
 
 > En cours de redaction
 
-# Chapitre 4 - Les commentaires
+# Chapitre 4 - Commentaires
 
 - qu'est qu'un code propres
 - noms significatifs
