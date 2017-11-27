@@ -9,22 +9,23 @@ règles simples, les appliquer systématiquement
 
 important, moyen de communication
 
-"faire en sorte que cela fonctionne" n'est pas la priorité: fonctionnalites changent, lisibiltie du code a un impact sur les modifications, facilite de maintenance et extension du code
+"faire en sorte que cela fonctionne" n'est pas la priorité: fonctionnalités changent, lisibilité du code a un impact sur les modifications, facilité de maintenance et extension du code
 
-etablir un precedent
+établir un précédent 
 
 ## Mise en forme verticale
 
-tres variables, quelques dizaines de lignes a plusieurs milliers
+très variables, quelques dizaines de lignes a plusieurs milliers
 
-taille des fichiers pas forcement en relation avec la taille des projets
+taille des fichiers pas forcément en relation avec la taille des projets
 
-Petits fichiers plus simples a comprendre
+Petits fichiers plus simples à comprendre
 
 - Métaphore du journal -> du plus haut niveau vers les details
-- Espacement vertical des concepts -> ligne vide pour separer les concepts
-- Concentration verticale -> ne pas separer les memes concepts ensemble (commentaires, lignes vides, etc)
-- Distance verticale -> regrouper les concepts verticalement, regrouper dans un meme fichier si cela a du sens. Variables protegees a eviter ?
+- Espacement vertical des concepts -> ligne vide pour séparer les concepts
+- Concentration verticale -> ne pas séparer les mêmes concepts ensemble (commentaires, lignes vides, etc)
+- Distance verticale -> regrouper les concepts verticalement, regrouper dans un même fichier si cela a du sens. 
+Variables protégées a eviter ?
 
 ## Déclarations de variables
 
@@ -34,37 +35,34 @@ Rare cas d'exception ?
 
 ## Variables d’instance
 
-Java: au debut de la classe. C++: a la fin. 
+Java: au début de la classe. C++: a la fin. 
 
 ## Fonctions dépendantes
 
-proches verticalement, appelant avant appellees
+proches verticalement, appellant avant appellées
 
 ## Affinité conceptuelle
 
-appelant/appeleees, functions qui realisent une operation semblable
+appelant/appelées, fonctions qui réalisent une opération semblable
 
 ## Rangement vertical
 
-
-
 # Mise en forme horizontale
 
-80 caracteres arbitaires, mais conserver des lignes pas trop longue (100, voire 120)
+80 caractères arbitraires, mais conserver des lignes pas trop longue (100, voire 120)
 
 ## Espacement horizontal et densité
 
 espace dans une ligne
 
-operateur d'affectation = 1 espace
-appel de fonction = pas d'espace
-espace apres virgule
-addition et soustraciton = espace, multiplication et division = pas d'espace
-==> basé sur les regles typographiques ?
+- operateur d'affectation = 1 espace
+- appel de fonction = pas d'espace
+- espace apres virgule
+- addition et soustraction = espace, multiplication et division = pas d'espace
 
 ## Alignement horizontal
 
-auteur prefere non aligné
+auteur préféré non aligné
 
 ## Indentation
 
@@ -76,33 +74,29 @@ permet de lire rapidement par blocs de code
 
 ## Rompre l’indentation
 
-auteur ne prefere pas le code sur une ligne
+auteur ne préfère pas le code sur une ligne
 
 ## Portées fictives
 
-preferer des accolades vides plutot qu'un point virgule seul
-
-
+préférer des accolades vides plutot qu'un point virgule seul
 
 # Règles d’une équipe
 
-suivre les regles de l'equipe
+suivre les règles de l'equipe
 
 rester coherent
 
-
-
-
 # questions
 
-> outils de formatage ? clang-format, git hook
-> separer commit mise en forme et changement dans le code ?
+- outils de formatage ? clang-format, git hook
 
-> est ce que les styles de codage de Lynix sont les pires ou il est possible de faire pire ?
+séparer commit mise en forme et changement dans le code ?
 
-==> C++: meme ordre que interface ? 
-==> A qui est destinee la declaration de la classe ? Au l'utilisateur = mettre dans l'ordre public, protected et private
-==> Java: pas de separation interface/implementation. Fichier destinee aux utilisateurs et concepteurs de la classe. C++ = separation
+- C++: meme ordre que interface ? 
 
-==> guides par equipes
+A qui est destinée la déclaration de la classe ? Au l'utilisateur = mettre dans l'ordre public, protected et private
+
+Java: pas de separation interface/implementation. Fichier destinée aux utilisateurs et concepteurs de la classe. C++ = separation
+
+- guides par equipes 
 
