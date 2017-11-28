@@ -69,5 +69,6 @@ Voici les résumés des chapitres et des discussions :
 - [Chapitre 1 - Code propre](chapitre_01.md). Séance du 16 octobre.
 - [Chapitre 2 - Noms significatifs](chapitre_02.md). Séance du 30 octobre.
 - [Chapitre 3 - Fonctions](chapitre_03.md). Séance du 6 novembre.
-- [Chapitre 4 - Commentaires](chapitre_04.md). Prochaine séance le 13 novembre.
-- Chapitre 5 - Mise en forme. Prochaine séance le 20 novembre.
+- [Chapitre 4 - Commentaires](chapitre_04.md). Séance du 13 novembre.
+- [Chapitre 5 - Mise en forme](chapitre_05.md). Séance du 28 novembre.
+- Chapitres 6 et 7, prochaines séance le 5 décembre.
