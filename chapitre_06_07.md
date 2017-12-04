@@ -63,17 +63,16 @@ ajouts de classes vs ajouts de fonctions
 
 ## Questions
 
-====>> Method chaining, named parameter idiom, vs catastrophe ferroviere
+- Method chaining, named parameter idiom, vs catastrophe ferroviere
 
 ```
 QString("bla bla").arg(123).arg(123)
 std::cout << 1 << 123 << std::endl;
 ```
 	
-====>> exemple de structure de donnees ? GPU. Data driven programming
+- exemple de structure de donnees ? GPU. Data driven programming
 
-====>> choix des differents langages ? acces aux private ? Pas d'objects, que des structures de donnees. Tuple/pair = tous les langages sont objects ?
-
+- choix des differents langages ? acces aux private ? Pas d'objects, que des structures de donnees. Tuple/pair = tous les langages sont objects ?
 
 ```
 struct opaque;
@@ -145,9 +144,9 @@ Retourner un objet "qui ne fait rien"
 ## Conclusion
 
 
-====>> "nouvelles" methodes de gestion des donnees : retour de fonctions, exception, monades (Maybe), optional
+- "nouvelles" methodes de gestion des donnees : retour de fonctions, exception, monades (Maybe), optional
 
-====>> RAII et exception, equivalent de finally
+- RAII et exception, equivalent de finally
 
 
 
