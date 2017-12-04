@@ -71,4 +71,5 @@ Voici les résumés des chapitres et des discussions :
 - [Chapitre 3 - Fonctions](chapitre_03.md). Séance du 6 novembre.
 - [Chapitre 4 - Commentaires](chapitre_04.md). Séance du 13 novembre.
 - [Chapitre 5 - Mise en forme](chapitre_05.md). Séance du 28 novembre.
-- Chapitres 6 et 7, prochaines séance le 5 décembre.
+- [Chapitres 6 - Objets et structures de données - et 7 - Gestion des erreurs](chapitre_06_07.md). Séance du 4 décembre.
+- Chapitres 8 - Limites - et 9 - Tests unitaires. Prochaine scéance le 11 décembre.
