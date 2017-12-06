@@ -8,7 +8,7 @@ qui traite de ces notions. De plus, nous n'avons, pendant la lecture, que notre 
 de l'auteur (ou du moins ce que l'on en comprend) pour juger de la pertinence des informations que l'on lit.
 
 C'est pourquoi des membres de la communauté proposent de se réunir à intervalles réguliers pour discuter 
-à propos d'un livre, sur le discord [Groupe #43](https://discord.gg/HNNKn5), en dans le canal "Vocal".
+à propos d'un livre, sur le discord [Groupe #43](https://discord.gg/P8dmVSs), en dans le canal "Vocal".
 
 Les objectifs sont les suivants :
 
