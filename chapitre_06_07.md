@@ -3,51 +3,64 @@
 
 ## Abstraction de données
 
-pas uniquement une structure de donnees, impose comment utiliser (lecture valeurs seules, ecriture atomique)
+Pour l'auteur, une classe n'est pas simplement un agrégat de données, mais impose également comment utiliser ces données
+(lecture valeurs seules, écriture atomique). En cela, il distingue les classes et les structures de données.
 
-manipuler l’essence des données, sans avoir à en connaître l’implémentation. ne pas exposer les détails de nos données.
+Le but de l'encapsulation est de manipuler l’essence des données, sans avoir à en connaître l’implémentation. 
+Et donc ne pas exposer les détails de nos données.
 
-réflexion sérieuse sur la meilleure manière de représenter les données contenues dans un objet
+La base de ce chapitre est de faire une réflexion sérieuse sur la meilleure manière de représenter les données 
+contenues dans un objet
 
 ## Antisymétrie données/objet
 
-Les objets cachent leurs données derrière des abstractions et fournissent des fonctions qui manipulent ces données. Les structures de données exposent directement leurs données et ne fournissent aucune fonction significative.
+Les objets cachent leurs données derrière des abstractions et fournissent des fonctions qui manipulent ces données. 
+Les structures de données exposent directement leurs données et ne fournissent aucune fonction significative.
 
-Un code procédural (un code qui utilise des structures de données) facilite l’ajout de nouvelles fonctions sans modifier les structures de données existan- tes. Un code orienté objet facilite l’ajout de nouvelles classes sans modifier les fonctions existantes.
+Un code procédural (un code qui utilise des structures de données) facilite l’ajout de nouvelles fonctions sans 
+modifier les structures de données existantes. Un code orienté objet facilite l’ajout de nouvelles classes sans 
+modifier les fonctions existantes.
 
-Un code procédural complexifie l’ajout de nouvelles structures de données car toutes les fonctions doivent être modifiées. Un code orienté objet complexifie l’ajout de nouvelles fonctions car toutes les classes doivent être modifiées.
+Un code procédural complexifie l’ajout de nouvelles structures de données car toutes les fonctions doivent être 
+modifiées. Un code orienté objet complexifie l’ajout de nouvelles fonctions car toutes les classes doivent être 
+modifiées.
 
-Parfois, nous voulons réellement de simples structures de données avec des procédures qui les manipulent. ===> GPU array de points
+Parfois, nous voulons réellement de simples structures de données avec des procédures qui les manipulent.
 
 ## Loi de Déméter
 
-un module ne doit pas connaître les détails internes des objets qu’il manipule
+Un module ne doit pas connaître les détails internes des objets qu’il manipule.
 
-une méthode f d’une classe C ne doit appeler que les méthodes des éléments suivants :
-- C;
-- un objet créé par f ;
-- un objet passé en argument à f ;
-- un objet contenu dans une variable d’instance de C.
+Une méthode `f` d’une classe `C` ne doit appeler que les méthodes des éléments suivants :
 
-mauvais exemple : final String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath(); 
+- `C` ;
+- un objet créé par `f` ;
+- un objet passé en argument à `f` ;
+- un objet contenu dans une variable d’instance de `C`.
 
-### Catastrophe ferroviaire
+Voici une exemple de code qui ne respecte pas cette loi :
 
-classes vs structures de donnees, cela depend
+```
+String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath(); 
+```
 
-### Hybrides
+L'auteur qualifié un tel code, qui appel en chaîne plusieurs méthodes, de "catastrophe ferroviaire".
 
-le pire des 2 mondes
+Les structures hybrides commulent le pire des deux monde.
 
 ### Cacher la structure
 
-solutions = retourner une structure ou mettre toutes les methodes dans le classe ? Non
+Il faut se poser la question de savoir si la solution est de retourner une structure (donc ne plus avoir de
+contraintes d'accès aux membres) ou mettre toutes les methodes dans le classe qui appelle toutes ces fonctions
+ en chaîne. Et pour l'auteur, la réponse est non.
 
-ne pas demander quelque chose concernant ses détails internes, mais laisse la classe le faire. mélange de différents niveaux de détails
+Il ne faut pas demander quelque chose concernant ses détails internes, mais laisse la classe le faire. 
+Il ne faut pas mélanger différents niveaux de détails (voir les chapitres précedents).
 
 ## Objets de transfert de données, DTO, Data Transfer Object
 
-bean = structure de donnees, avec membres privee, constructeur public qui prend les parametres, et getters
+En Java, il est classique de créer des "beans" : ce sont des structures de données, avec ses membres en privée, 
+un constructeur public qui prend en paramètre tous ces membres, et proposent des getters sur ces membres.
 
 ### Enregistrement actif
 
