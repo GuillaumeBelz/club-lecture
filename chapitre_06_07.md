@@ -64,45 +64,48 @@ un constructeur public qui prend en paramètre tous ces membres, et proposent de
 
 ### Enregistrement actif
 
-contient des methodes comme find ou save. Hybride
+Pour terminer ce chapitre, une remarque sur les "enregistrements actifs" : ils contiennent des methodes comme 
+`find` ou `save`, ce qui en fait des structures hybride.
 
 ## Conclusion
 
-ajouts de classes vs ajouts de fonctions
+Les deux types de données suivent des approches differentes pour l'evolution du code : ajouter des classes
+ou ajouter des fonctions.
 
+## Discussions
 
-
-
-
-## Questions
-
-- Method chaining, named parameter idiom, vs catastrophe ferroviere
+- le "method chaining" (ou "named parameter idiom") ne doit pas être confondu avec la "catastrophe ferrovière",
+même si les syntaxes sont proches. La difference est que le "method chaining" retourne le même objet après chaque 
+appel, ce qui respecte la loi de Demeter.
 
 ```
 QString("bla bla").arg(123).arg(123)
 std::cout << 1 << 123 << std::endl;
 ```
-	
-- exemple de structure de donnees ? GPU. Data driven programming
 
-- choix des differents langages ? acces aux private ? Pas d'objects, que des structures de donnees. Tuple/pair = tous les langages sont objects ?
+- les choix de design des langages peuvent avoir une importance choix par rapport au respect des accès aux données.
+Certains langages permettront de renforcer les acces (ou autre contraire ne pas les respecter), proposer des modeles
+pour la structure de donnees (`Interface` en Java, meta-classes du C++20, etc).
+
+À noter, le C ne propose pas de syntaxe pour l'acces au membres, mais il est possible de créer des structures
+opaques pour cacher le définition.
 
 ```
 struct opaque;
-
 void f(struct opaque* o);
 ```
 
 
-
-
-
-
 # Chapitre 7 - Gestion des erreurs
 
-tâches indispensables dans un programme, entrée anormale, périphériques peuvent échouer
-responsables du bon comporte- ment de notre code.
-Le traitement des erreurs est important, mais s’il masque la logique il est mauvais.
+La gestion des erreurs constitue une tâchs indispensable dans un programme, tous les programmes peuvent
+avoir des entrées anormales, la lecture sur un périphériques peuvent échouer, ou bien d'autres raisons.
+
+La gestion de certaines erreurs peut être automatique, mais le developpeur reste responsables du bon 
+comportement de notre code, qui doit suivre les specifications attendues.
+
+Le traitement des erreurs est important, mais il ne doit pas masquer la logique du code.
+
 
 ## Utiliser des exceptions à la place des codes de retour
 
