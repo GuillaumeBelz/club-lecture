@@ -117,3 +117,6 @@ Il est peu réaliste de vouloir prouver que du code est correct. # Kass'peuk
 - modèle memoire et concurrence
 - tester du code multithread : mais si pas reproductible, a quoi ca sert ? Quoi faire ? Prioritaire ?
 - enseignement de la programmation concurrente 
+- http://diy.inria.fr/herd/herding-cats-bw.pdf
+- http://ceur-ws.org/Vol-1639/paper-04.pdf
+- https://en.wikipedia.org/wiki/Bulk_synchronous_parallel
