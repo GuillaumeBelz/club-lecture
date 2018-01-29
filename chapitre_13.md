@@ -122,4 +122,4 @@ Il est peu réaliste de vouloir prouver que du code est correct. # Kass'peuk
 - https://en.wikipedia.org/wiki/Bulk_synchronous_parallel
 - https://rephrase-eu.weebly.com/
 
-![Java vs C++](https://giphy.com/gifs/java-programmer-ip2GZs8rLxt8k)
+![Java vs C++](http://img.ibxk.com.br/ns/rexposta/2015/03/07/07115101647000.gif)
