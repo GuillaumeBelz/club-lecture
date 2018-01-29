@@ -116,3 +116,4 @@ Il est peu réaliste de vouloir prouver que du code est correct. # Kass'peuk
 - depuis Java 5 ? Autres langages
 - modèle memoire et concurrence
 - tester du code multithread : mais si pas reproductible, a quoi ca sert ? Quoi faire ? Prioritaire ?
+- enseignement de la programmation concurrente 
