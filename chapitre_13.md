@@ -113,6 +113,6 @@ Il est peu réaliste de vouloir prouver que du code est correct. # Kass'peuk
 - plus generalement, structures et algos concurrents ?
 - concurrence et conception, methodes pour eviter d'avoir a tout repenser ? Framework de concurrence
 - copies de donnees : prog fonctionnelle, données non mutable
-- depuis Java 5 ?
+- depuis Java 5 ? Autres langages
 - modèle memoire et concurrence
 - tester du code multithread : mais si pas reproductible, a quoi ca sert ? Quoi faire ? Prioritaire ?
