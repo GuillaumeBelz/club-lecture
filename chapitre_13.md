@@ -3,6 +3,8 @@
 
 # Chapitre 13 - Concurrence
 
+Idée de la concurrence : Stratégie de découplage entre les actions réalisées et le moment où elles sont réalisées. Le fait d'avoir plusieurs piles sémantiques (plusieurs "programmes") avec une part de mémoire partagée permet d'effectuer des tâches différentes potentiellement en même temps. On peut avoir des systèmes ou plusieurs programmes coopèrent à résoudre une tâche plus globale. On peut gagner en organisation ou encore en performances.
+
 "Il est difficile, même très difficile, d’écrire des programmes concurrents propres."
 
 "en apparence, semble parfait, mais qui soit défectueux à un niveau plus profond."
@@ -37,6 +39,8 @@ Vrai :
 
 ### Corollaire : limiter la portée des données
 
+Avoir un maximum de localité pour les données évite d'augmenter la quantité de code susceptible de créer des problèmes de concurrence. Les données accessibles à un thread ne doivent être (logiquement) accessibles par personne excepté le thread, sauf pour les structures de données concurrentes qui doivent renforcer une telle encapsulation.
+
 utiliser le mot-clé synchronized pour protéger une section critique du code qui utilise l’objet partagé
 
 risques :
@@ -46,6 +50,8 @@ risques :
 - Il sera difficile de déterminer les sources de dysfonctionnements
 
 ### Corollaire : utiliser des copies des données
+
+A l'entrée des structures concurrentes, forcer la copie permet d'empêcher un thread externe de créer un partage non voulu.
 
 - copies + map-reduce
 
@@ -89,9 +95,11 @@ Recommandation : évitez d’utiliser plusieurs méthodes sur un objet partage
 
 ## Garder des sections synchronisées courtes
 
-Recommandation : conservez des sections synchronisées les plus courtes possible.
+Recommandation : conservez des sections synchronisées les plus courtes possible. Cela permet entre autre d'avoir un code concurrent plus simple (car moins long à lire et comprendre) mais surtout d'éviter de bloquer tout le monde pendant trop longtemps ce qui ruine les performances.
 
 ## Écrire du code d’arrêt est difficile
+
+Il existe un risque important qu'un thread soit en attente de quelque chose et qu'il ne reçoive jamais le signale d'arrêt.
 
 ## Tester du code multithread
 
@@ -104,7 +112,6 @@ Il est peu réaliste de vouloir prouver que du code est correct. # Kass'peuk
 - Exécuter le code avec plus de threads que de processeurs
 - Exécuter le code sur différentes plates-formes
 - Instrumenter le code pour essayer et forcer des échecs, manuel et/ou automatique
-
 
 ## Questions
 
