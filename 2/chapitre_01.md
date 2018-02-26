@@ -1,6 +1,5 @@
 
-**Introduction to Algorithms**
-**Third Edition**
+**Introduction to Algorithms (Third Edition)**
 
 # Preface
 
@@ -13,7 +12,7 @@ Des solutions aux exercices sont en ligne : http://mitpress.mit.edu/algorithms/
 Résumé des chapitres de la première partie :
 
 - 01 : vue d'ensemble et definition de ce qu'est une algorithme. Quelques exemples, quelques domaines.
-- 02 : premiers algorithmes, sur le tri (*sort*) d'une séquence de n nombres : tri par insertion (**insertion sort**) et tri fusion (*merge sort*).
+- 02 : premiers algorithmes, sur le tri d'une séquence de n nombres : les tri par insertion (*insertion sort*) et tri fusion (*merge sort*), et la technique "Diviser pour régner" (*divide-and-conquer*).
 - 03 : 
 - 04 : 
 - 05 : introduction à l'analyse probabiliste et aux algorithmes aléatoires. 
