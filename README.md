@@ -1,3 +1,5 @@
+[Version lecture](https://guillaumebelz.github.io/club-lecture/)
+
 # Club de lecture sur l'informatique
 
 Bonjour à tous.
