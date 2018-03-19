@@ -2,13 +2,14 @@
 
 Bonjour à tous.
 
-Tout développeur le sait : il est parfois difficile d'avancer dans ses lectures lorsque l'on cherche à 
-apprendre de nouvelles notions, d'autant qu'il est même parfois difficile de bien choisir la ressource 
-qui traite de ces notions. De plus, nous n'avons, pendant la lecture, que notre point de vue et celui 
-de l'auteur (ou du moins ce que l'on en comprend) pour juger de la pertinence des informations que l'on lit.
+Tout développeur le sait : il est parfois difficile d'avancer dans ses lectures lorsqu'on cherche à
+apprendre de nouvelles notions. Il peut être également difficile de bien choisir la ressource
+qui traite de ces notions. De plus, nous n'avons, pendant la lecture, que notre point de vue et celui
+de l'auteur (ou du moins ce que l'on en comprend) pour juger de la pertinence des informations qu'on lit.
 
-C'est pourquoi des membres de la communauté proposent de se réunir à intervalles réguliers pour discuter 
-à propos d'un livre, sur le discord [Groupe #43](https://discord.gg/P8dmVSs), en dans le canal "Vocal".
+C'est pourquoi des membres de la communauté Nan proposent de se réunir à intervalles réguliers pour discuter
+d'un livre, sur le discord [Groupe #NaN](https://discordapp.com/invite/zcWp9sC) dans les canaux
+"Club de lecture" et "Vocal".
 
 Les objectifs sont les suivants :
 
@@ -16,75 +17,54 @@ Les objectifs sont les suivants :
 - avoir des points de vue différents, d'autres habitudes, d'autres langages ;
 - produire des commentaires pertinents à propos de diverses ressources.
 
-Pour rester ouvert à un maximum de personnes différentes (autant d'un point de vue du langage que du niveau), 
+Pour rester ouvert à un maximum de personnes différentes (autant d'un point de vue du langage que du niveau),
 le livre choisi devra :
 
-- parler d'un thème de l'informatique au sens large (y compris conception, gestion de projet, etc), indépendant 
+- parler d'un thème de l'informatique au sens large (y compris conception, gestion de projet, etc), indépendant
 d'un langage (même si l'illustration par un langage particulier convient) ;
-- posséder un intérêt pour des développeurs de tout niveau (le but est d'avoir matière à débattre y compris pour 
+- posséder un intérêt pour des développeurs de tout niveau (le but est d'avoir matière à débattre y compris pour
 des débutants, pas de faire du question-réponse) ;
 - être dispo quelque part en PDF.
 
-Le livre en question sera choisi (par la communauté) en deux temps, d'abord diverses propositions seront faites, 
-puis votées. Un post de forum sera préparé pour cela.
+Le livre est choisi par tout ceux qui le souhaitent, en deux temps :
 
-Actuellement, nous pensons que ça serait une bonne idée de se rassembler une fois par semaine pendant 30 minutes 
-à 1h (cela pourra bien entendu être adapté selon comment se passent les séances), pour avoir un maximum de personnes, 
-tout en gardant un débat avec suffisamment de contenu pour que cela en vaille la peine. Un autre post de forum sera 
-créé pour choisir le prochain créneau. Cela n'interdit pas, bien entendu, de continuer les discussions en dehors de 
-ces créneaux.
+- on propose des livres qui semblent intéressant à lire ;
+- on discute et on vote pour choisir le livre.
 
-Comme dit précédemment, ces discussions auront lieu en vocal sur un salon du Discord d'OC. Il est possible de 
-venir en simple spectateur (pour écouter), si l'on souhaite participer, nous demandons d'être sûr à l'avance de 
-la qualité de son micro.
+Le club de lecture se réunit tous les lundi, à 20 heure pendant une heure, sur le discord. Vous pouvez simplement
+être présent pour écouter les conversations, ou intervenir à l'écrit sur le canal Club de lecture ou à l'oral
+sur le vocal.
 
-Une séance traitera a priori d'un chapitre du livre. Pour une séance, trois intervenants seront choisis, parmi les 
-volontaires, pour (dans l'ordre) :
+Chaque séance aborde un chapitre du livre. Au début de la séance, un volontaire fait un résumé du chapitre
+pendant 15 à 20 minutes, puis nous discutons de ce chapitre. En fin de séance, les notes prises sont publiées
+sur le GitHub : https://github.com/GuillaumeBelz/club-lecture
 
-- faire un résumé des séances précédentes ;
-- présenter les thèmes et questions à aborder pendant la séance ;
-- prendre des notes sur ce qui est dit pendant la discussion.
+## Coder proprement, de Robert C. Martin
 
-Cela implique notamment que les questions et thèmes de discussions devraient être transmises à l'avance à la personne 
-chargée de les présenter.
+Le premier livre choisi était ["Coder proprement", de Robert C. Martin].
 
-En fin de séance, les notes prises pourraient être relues rapidement pour s'assurer que rien d'incohérent n'a été 
-introduit. Et elles serviraient pour préparer le résumé lors de la séance suivante et produire le résumé global du 
-livre qui sera accessible par la suite sur le post de forum correspondant à ce livre.
-
-Si un chapitre semble trop long pour une séance, il pourrait être coupé en deux à l'avance. De la même manière, si 
-l'on s'aperçoit qu'à la fin d'une séance, il y a encore matière à débattre, le chapitre suivant pourrait être décalé 
-d'une semaine.
-
-Voilà, si vous êtes intéressés, surveillez bien les forums en attente de la première annonce de livre. Tout cela a 
-déjà été bien discuté sur le discord (channel #club-de-lecture) mais les modifications du format ne sont bien entendu 
-pas fermées à la discussion.
-
-# Coder proprement, de Robert C. Martin
-
-Le premier livre choisi est "Coder proprement", de Robert C. Martin. Les seances ont lieu tous les lundi à 20h.
-
-[Résumé complet du livre et commentaire global](resume_complet.md)
+[Résumé complet du livre et commentaire global](livre_01/resume_complet.md)
 
 Voici les résumés des chapitres et des discussions :
 
-- [Chapitre 1 - Code propre](chapitre_01.md). Séance du 16 octobre.
-- [Chapitre 2 - Noms significatifs](chapitre_02.md). Séance du 30 octobre.
-- [Chapitre 3 - Fonctions](chapitre_03.md). Séance du 6 novembre.
-- [Chapitre 4 - Commentaires](chapitre_04.md). Séance du 13 novembre.
-- [Chapitre 5 - Mise en forme](chapitre_05.md). Séance du 28 novembre.
-- [Chapitres 6 et 7 - Objets et structures de données et Gestion des erreurs](chapitre_06_07.md). Séance du 4 décembre.
-- [Chapitres 8 et 9 - Limites et Tests unitaires](chapitre_08_09.md). Séance du 8 janvier.
-- [Chapitre 10 - Les classes](chapitre_10.md). Séance du 15 janvier.
-- [Chapitre 11 - Systèmes](chapitre_11.md). Séance du 22 janvier.
-- [Chapitre 13 - Concurrence](chapitre_13.md). Séance du 29 janvier.
-- [Annexe A - Concurrence](chapitre_13_bis.md). Séance du 5 février.
+- [Chapitre 1 - Code propre](livre_01/chapitre_01.md). Séance du 16 octobre 2017.
+- [Chapitre 2 - Noms significatifs](livre_01/chapitre_02.md). Séance du 30 octobre 2017.
+- [Chapitre 3 - Fonctions](livre_01/chapitre_03.md). Séance du 6 novembre 2017.
+- [Chapitre 4 - Commentaires](livre_01/chapitre_04.md). Séance du 13 novembre 2017.
+- [Chapitre 5 - Mise en forme](livre_01/chapitre_05.md). Séance du 28 novembre 2017.
+- [Chapitres 6 et 7 - Objets et structures de données et Gestion des erreurs](livre_01/chapitre_06_07.md). Séance du 4 décembre 2017.
+- [Chapitres 8 et 9 - Limites et Tests unitaires](livre_01/chapitre_08_09.md). Séance du 8 janvier 2018.
+- [Chapitre 10 - Les classes](livre_01/chapitre_10.md). Séance du 15 janvier 2018.
+- [Chapitre 11 - Systèmes](livre_01/chapitre_11.md). Séance du 22 janvier 2018.
+- [Chapitre 13 - Concurrence](livre_01/chapitre_13.md). Séance du 29 janvier 2018.
+- [Annexe A - Concurrence](livre_01/chapitre_13_bis.md). Séance du 5 février 2018.
 
-# Introduction to Algorithms - 3rd Edition, de T. Cormen
+## Introduction to Algorithms - 3rd Edition, de T. Cormen
 
-Le deuxième livre choisi est "Introduction to Algorithms" de
+Le livre actuellement en cours de lecture est ["Introduction to Algorithms"](livre_02/README.md) de Thomas H. Cormen,
+Charles E. Leiserson, Ronald L. Rivest et Clifford Stein.
 
-- Thomas H. Cormen
-- Charles E. Leiserson 
-- Ronald L. Rivest
-- Clifford Stein
+- [Chapitre 1 - The Role of Algorithms in Computing](livre_02/chapitre_01.md). Séance du 26 février 2018.
+- [Chapitre 2 - Getting Started](livre_02/chapitre_02.md). Séance du 5 mars 2018.
+- [Chapitre 3 - Growth of Functions](livre_02/chapitre_03.md). Séance du 12 mars 2018.
+- [Chapitre 4 - Divide-and-Conquer](livre_02/chapitre_04.md). Séance du 19 mars 2018.
