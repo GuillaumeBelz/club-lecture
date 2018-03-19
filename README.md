@@ -43,7 +43,7 @@ sur le GitHub : https://github.com/GuillaumeBelz/club-lecture
 
 ## Coder proprement, de Robert C. Martin
 
-Le premier livre choisi était ["Coder proprement", de Robert C. Martin].
+Le premier livre choisi était ["Coder proprement", de Robert C. Martin](livre_01/README.md).
 
 [Résumé complet du livre et commentaire global](livre_01/resume_complet.md)
 
