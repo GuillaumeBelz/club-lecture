@@ -39,7 +39,7 @@ sur le vocal.
 
 Chaque séance aborde un chapitre du livre. Au début de la séance, un volontaire fait un résumé du chapitre
 pendant 15 à 20 minutes, puis nous discutons de ce chapitre. En fin de séance, les notes prises sont publiées
-sur le GitHub : https://github.com/GuillaumeBelz/club-lecture
+sur le [GitHub](https://github.com/GuillaumeBelz/club-lecture).
 
 ## Coder proprement, de Robert C. Martin
 
