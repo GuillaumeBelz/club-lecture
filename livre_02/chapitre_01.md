@@ -1,7 +1,5 @@
 
-**Introduction to Algorithms (Third Edition)**
-
-# Preface
+# Préface
 
 Chaque chapitre presente un algorithme, une technique de conception,
 un domaine d'application, ou un un sujet connexe.
@@ -25,7 +23,7 @@ Résumé des chapitres de la première partie :
   aléatoires.
 - annexes A à D : compléments mathématiques.
 
-# Les algorithmes
+# Chapitre 1 - The Role of Algorithms in Computing.
 
 ## Généralités
 
