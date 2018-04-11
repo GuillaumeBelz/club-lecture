@@ -29,9 +29,11 @@ Résumé des chapitres de la première partie :
 
 ## Généralités
 
-Procédure de calcul qui reçoit en entrée des valeurs et produit en
+Definition : procédure de calcul qui reçoit en entrée des valeurs et produit en
 sortie des valeurs. Suite d'opérations qui transforme les entrées en
-sorties. À l'heure actuelle, il n'y a pas de consensus sur la
+sorties. 
+
+À l'heure actuelle, il n'y a pas de consensus sur la
 définition *formelle* de ce qu'est un algorithme. Ce qu'on apelle
 *opération* dépend du contexte : on considère très souvent que
 l'addition est primitive alors que ce n'est pas forcément le cas pour
@@ -42,7 +44,7 @@ généraux. Contrairement aux algorithme, le problème peut être
 formellement défini. Exemple : calculer la moyenne de n entiers par
 exemple.
 
-Algorithme correct : étend donné un problème, on algorithme est
+Algorithme correct : étant donné un problème, un algorithme est
 correct vis-à-vis de ce problème si pour toute instance d'entrée, il
 calcule la sortie attendue. Les algorithmes incorrects ne sont pas
 nécessairement inutiles si le taux d'erreur est contrôlé par exemple.
@@ -55,8 +57,8 @@ applications pratiques.
 
 Le livre présente quelques structures de données. Il présente
 également des techniques d'approximation pour des problèmes où il
-n'éxiste pas de solution exacte ou bien que la solution exacte est
-trop longue à calculer en pratique.  Il présente également quelques
+n'existe pas de solution exacte ou bien que la solution exacte est
+trop longue à calculer en pratique. Il présente également quelques
 problèmes NP-difficiles.
 
 ## Les algorithmes en tant que technologie
@@ -73,7 +75,7 @@ paramètres). Très souvent, ce paramètre sera la *taille* de l'entrée,
 par exemple pour un algorithme qui trie un tableau de nombre, le
 paramètre pourra être la taille du tableau.
 
-Les algorithmes et les autres technologies: choisir et réaliser des
+Les algorithmes et les autres technologies : choisir et réaliser des
 algorithmes efficaces est aussi important que le choix du hardware par
 exemple. De toute façon, même le hardware nécessite des algorithmes.
 
@@ -82,7 +84,7 @@ exemple. De toute façon, même le hardware nécessite des algorithmes.
 - qu'attendez vous de ce livre ? De ce type de livre ? D'un livre en
   general ?
 
-## NP-Hard vs NP-Complete :
+## NP-difficile vs NP-complet :
 
 En théorie de la complexité, un problème NP-complet est un problème de
 décision, c'est à dire dont la réponse peut-être *oui* ou *non*
