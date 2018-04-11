@@ -77,9 +77,9 @@ Les algorithmes et les autres technologies : choisir et réaliser des
 algorithmes efficaces est aussi important que le choix du hardware par
 exemple. De toute façon, même le hardware nécessite des algorithmes.
 
-# Questions
+# Discussions
 
-- qu'attendez vous de ce livre ? De ce type de livre ? D'un livre en
+Qu'attendez vous de ce livre ? De ce type de livre ? D'un livre en
   general ?
 
 ## NP-difficile vs NP-complet :
@@ -105,8 +105,6 @@ noeud ? Ce problème est aussi connu sous le nom de *chemin
 hamiltonien*.
 
 ## Complexité
-
-Complexité :
 
 - Quid des performances -> bien comprendre que complexité et
   performances sont des notions différentes (théorie vs pratique),
