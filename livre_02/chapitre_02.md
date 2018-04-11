@@ -132,7 +132,7 @@ Généralité :
 
 > T(n) = | O(1)                   si n <= c
 >
->        | aT(n/b) + D(n) + C(n)  sinon
+> T(n) = | aT(n/b) + D(n) + C(n)  sinon
 
 Avec `a` le nombre de sous-problèmes, `b` la taille des sous-problèmes, `D` le temps de division et
 `C` le temps de combinaison.
@@ -145,7 +145,7 @@ visite chaque élément). Chaque étage de la récursion est donc en temps N (on
 
 > T(n) = | O(1) si n = 1
 >
->        | 2T(n/2) + O(n) si n > 1
+> T(n) = | 2T(n/2) + O(n) si n > 1
 
 La complexité finale est O(n log n) (à voir dans le chapitre 4)
 
