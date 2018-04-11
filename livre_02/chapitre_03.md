@@ -1,25 +1,37 @@
 
 # Chapitre 3 - Growth of Functions
 
-mesure d'efficacite : order of growth of the running time of an algorithm. compare the relative performance of alternative algorithms
+La question posée par ce chapitre est de déterminer une mesure d'efficacité : comment le temps d'exécution d'un 
+algorithme va grandir, en fonction de ses paramètres. Cette mesure permet de comparer les performances relatives
+entre plusieurs alternatives d'algorithmes.
 
-input size n (becomes large enough)
+Le paramètre principal est la taille des entrées `n`. On s'interesse aux comportements aux limites (analyse asymptotic),
+c'est-à-dire pour `n` suffisament grand.
 
-- merge sort: Theta(n lg n)  worst-case running time
-- insertion sort : Theta(n^2)
+Les temps d'execution dans le plus mauvais des cases (*worst-case running time*) :
 
-analyse asymptotic, aux limites
+- pour *merge sort* : `Theta(n lg n)`.
+- pour *insertion sort* : `Theta(n^2)`
 
 ## 3.1 Asymptotic notation
 
+Ce chapitre présente plusieurs démonstrations de calculs des performances des algorithmes. Reproduire ces
+calculs dans le résumé n'est pas pertinent. Si cela vous intéresse, il est préférable de lire ces calculs 
+directement dans le chapitre.
+
 ### Asymptotic notation, functions, and running times
 
-details: a.n^2 + b.n + c (insertion sort)
-asymptotic ~ Theta(n2)
+Pour le tri par insertion, le détail des calculs donne des performances qui suivent une forme
+polynomiale :
 
-which running time ?
+> a.n^2 + b.n + c
 
-Theta(g(n)) = { f(n) } : there exist positive constants c1, c2, and n0 such that 0 
+Le comportement asymptotique suit donc une loi en `Theta(n^2)`. (Les valeurs de `b.n` et `c` sont négligeables devant
+`a.n^2` quand `n` est très grand).
+
+Quel est le temps d'exécution ?
+
+> Theta(g(n)) = { f(n) } : there exist positive constants c1, c2, and n0 such that 0 
 
 Member d'un ensemble de fonctions = pas une seule fonction f() qui peut etre une borne de g()
 
@@ -34,7 +46,7 @@ Demontration que 6.n^3 != Theta(n^2)
 
 Theta(1) = Theta(n^0) = constante
 
-### O -notation
+### O-notation (grand O, la lettre)
 
 asymptotic upper bound
 
@@ -46,7 +58,7 @@ Par exemple, 2 boucles imbriqués = O(n^2)
 la limite O(n^2) sur le plus mauvais cas est egalement O(n^2) sur tous les cas.
 Mais pas vrai pour Theta. Par exemple, insertion sort si collection est deja triée est Theta(n)
 
-### omega -notation
+### grand omega-notation
 
 asymptotic lower bound. best-case running time
 
@@ -68,7 +80,7 @@ exemple  2n = o(n^2), but 2.n^2 != o(n^2)
 
 f/g -> 0 pour n->oo
 
-### petit omega notation
+### petit omega-notation
 
 Idem
 
@@ -86,31 +98,14 @@ Trichotomy
 
 # 3.2 Standard notations and common functions
 
-## Monotonicity
-
-## Floors and ceilings
-
-## Modular arithmetic
-
-## Polynomials
-
-## Exponentials
-
-## Logarithms
-
-## Factorials
-
-## Functional iteration
-
-## The iterated logarithm function
-
-## Fibonacci numbers
 
 
 
 
+# Discussions
 
-question
+
+
 - revenir sur le "meilleur cas" "plus mauvais cas"
 - asymptoic
 - ensemble de fonctions. petit o et petit omega
