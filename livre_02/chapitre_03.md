@@ -1,5 +1,5 @@
 
-# chapitre 3 - Growth of Functions
+# Chapitre 3 - Growth of Functions
 
 mesure d'efficacite : order of growth of the running time of an algorithm. compare the relative performance of alternative algorithms
 
