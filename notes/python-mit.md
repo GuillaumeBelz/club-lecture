@@ -14,3 +14,6 @@ Pour programmer :
 - competence en programmation
 - savoir résoudre un problème
 
+2 choses que font les ordis :
+- calculer
+- se souvenir de choses
