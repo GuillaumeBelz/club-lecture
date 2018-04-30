@@ -1,6 +1,7 @@
-Probabilistic analysis and randomized algorithms
 
-# The hiring problem
+# Chapitre 5 - Probabilistic Analysis and Randomized Algorithms
+
+## The hiring problem
 
 On doit recruter un employé. L'agence envoie chaque jour un employé, on paie
 l'agence, et si on recrute : on paie plus cher. Pour avoir toujours le meilleur
@@ -22,12 +23,12 @@ le nombre de jour et m le nombre de recrutement, on a :
 
 O(ci * n + ch * m).
 
-## Pire cas
+### Pire cas
 
 On recrute à chaque fois: O(ch * n).
 Sauf que le candidat n'est pas toujours meilleur
 
-## Analyse probabiliste
+### Analyse probabiliste
 
 Idée: faire l'analyse par la connaissance de la distribution de l'entrée (ou en
 faisant des suppositions son propos). Il faut noter que c'est un cas moyen et
@@ -40,14 +41,14 @@ Ici, on peut considérer qu'il est possible de trouver un ordre total sur la
 qualité des employés et qu'une entrée est une permutation de cet ordre. Ici,
 on a une permutation aléatoire et uniforme.
 
-## Algorithmes randomisés
+### Algorithmes randomisés
 
 Pour pouvoir utiliser une analyse probabiliste, on a souvent besoin de connaître
 quelque chose à propos de la distribution des entrées, ce qui n'est pas toujours
 le cas. Dans ce cas, on peut se contenter de "forcer" la distribution à
 respecter cette proposition : en mélangeant par exemple.
 
-# Indicator random variables
+## Indicator random variables
 
 Variable utilisée pour passer des probabilités aux effets attendus sur l'entrée.
 Par exemple, on peut avoir:
@@ -104,16 +105,16 @@ ln n en moyenne.
 
 (Et en multipliant par le coût de recrutement, on arrive au coût global).
 
-# Algorithmes randomisés
+## Algorithmes randomisés
 
 Idée : forcer l'entrée à avoir la forme voulue d'un point de vue proba.
 Par exemple pour l'algorithme de recrutement : on mélange les arrivants.
 Et montrer que la complexité est O(ch ln n) est facile : on a créé la
 condition correcte sur l'entrée.
 
-## Permutation aléatoire de tableau
+### Permutation aléatoire de tableau
 
-### Permutation par le tri
+#### Permutation par le tri
 
 On crée aléatoirement des priorités pour chaque valeur et on trie le tableau
 d'origine en prenant comme clés les valeurs du tableau de priorités.
@@ -125,7 +126,7 @@ de 1/n!. L'intuition est que la probabilité pour un élément d'être à la cas
 
 Note: montrer que la probabilité pour chaque case est de 1/n est insuffisant.
 
-### Permutation en place
+#### Permutation en place
 
 Pour i de 1 à n swap A[i] avec une case entre i et la fin.
 
@@ -133,13 +134,13 @@ Pour prouver l'algo, on prouve un invariant montrant que le début du tableau
 (jusqu'à i) est une (i-1)-permutation du tableau, et qu'en instanciant i à n
 (fin de l'exécution), on arrive à une proba 1/n!
 
-# Analyse probabiliste et autres usages des indicator random variables
+## Analyse probabiliste et autres usages des indicator random variables
 
-## The birthday paradox
+### The birthday paradox
 
 Combien de personne dans une pièce pour avoir 50% de chance d'avoir un
 anniversaire commun ?
 Résultat assez connu, l'idée est qu'il faut se pencher sur les chances que les
 autres n'aient pas le même anniversaire que soi.
 
-Annexe C
+# Annexe C
