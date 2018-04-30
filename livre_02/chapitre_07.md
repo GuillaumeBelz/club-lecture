@@ -1,5 +1,5 @@
 
-# Quicksort
+# Chapitre 7 - Quicksort
 
 worst-case running time of Theta(n^2)
 
