@@ -27,3 +27,5 @@ et corrigent mieux les bugs.
 **Defects as Opportunities**
 
 > *You don’t need to learn how to fix defects; you need to learn how to avoid them in the first place.*
+
+
