@@ -80,6 +80,60 @@ SampleClass *sampleClass = [[SampleClass alloc]init];
 ret = [sampleClass max:a andNum2:b];
 ```
 
-### Function Arguments
+## Blocks
 
+```
+returntype (^blockName)(argumentType);
+
+returntype (^blockName)(argumentType)= ^{
+};
+```
+
+```
+void (^simpleBlock)(void) = ^{
+   NSLog(@"This is a block");
+};
+
+simpleBlock();
+```
+
+```
+double (^multiplyTwoValues)(double, double) = 
+   ^(double firstValue, double secondValue) {
+      return firstValue * secondValue;
+   };
+
+double result = multiplyTwoValues(2,4); 
+NSLog(@"The result is %f", result);
+```
+
+```
+#import <Foundation/Foundation.h>
+
+typedef void (^CompletionBlock)();
+@interface SampleClass:NSObject
+- (void)performActionWithCompletion:(CompletionBlock)completionBlock;
+@end
+
+@implementation SampleClass
+
+- (void)performActionWithCompletion:(CompletionBlock)completionBlock {
+
+   NSLog(@"Action Performed");
+   completionBlock();
+}
+
+@end
+
+int main() {
+   
+   /* my first program in Objective-C */
+   SampleClass *sampleClass = [[SampleClass alloc]init];
+   [sampleClass performActionWithCompletion:^{
+      NSLog(@"Completion is called to intimate action is performed.");
+   }];
+
+   return 0;
+}
+```
 
