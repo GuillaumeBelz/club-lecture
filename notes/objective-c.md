@@ -137,3 +137,21 @@ int main() {
 }
 ```
 
+Méthodes de `NSNumber` :
+
+```
+(NSNumber *)numberWithBool:(BOOL)value
+(NSNumber *)numberWithChar:(char)value
+(NSNumber *)numberWithDouble:(double)value
+(NSNumber *)numberWithFloat:(float)value
+(NSNumber *)numberWithInt:(int)value
+(NSNumber *)numberWithInteger:(NSInteger)value
+
+(BOOL)boolValue
+(char)charValue
+(double)doubleValue
+(float)floatValue
+(NSInteger)integerValue
+(int)intValue
+(NSString *)stringValue
+```
