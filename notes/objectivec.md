@@ -154,3 +154,65 @@ Méthodes de `NSNumber` :
 (int)intValue
 (NSString *)stringValue
 ```
+
+## Strings
+
+`NSString` et `NSMutableString`
+
+```
+#import <Foundation/Foundation.h>
+
+int main () {
+   NSString *greeting = @"Hello";
+   NSLog(@"Greeting message: %@\n", greeting );
+
+   return 0;
+}
+```
+
+```
+(NSString *)capitalizedString;
+(unichar)characterAtIndex:(NSUInteger)index;
+(double)doubleValue;
+(float)floatValue;
+(BOOL)hasPrefix:(NSString *)aString;
+(BOOL)hasSuffix:(NSString *)aString;
+(id)initWithFormat:(NSString *)format ...;
+(NSInteger)integerValue;
+(BOOL)isEqualToString:(NSString *)aString;
+(NSUInteger)length;
+(NSString *)lowercaseString;
+(NSRange)rangeOfString:(NSString *)aString;
+(NSString *)stringByAppendingFormat:(NSString *)format ...;
+(NSString *)stringByTrimmingCharactersInSet:(NSCharacterSet *)set;
+(NSString *)substringFromIndex:(NSUInteger)anIndex;
+```
+
+## Structures 
+
+```
+struct [structure tag] {
+   member definition;
+   member definition;
+   ...
+   member definition;
+} [one or more structure variables]; 
+```
+
+## Classes & Objects
+
+```
+@interface Box:NSObject {
+   //Instance variables
+   double length;    // Length of a box
+   double breadth;   // Breadth of a box
+}
+@property(nonatomic, readwrite) double height;  // Property
+
+@end
+
+Box box1 = [[Box alloc]init];     // Create box1 object of type Box
+Box box2 = [[Box alloc]init];     // Create box2 object of type Box
+
+```
+
