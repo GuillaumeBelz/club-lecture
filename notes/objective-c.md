@@ -53,4 +53,33 @@ joiningArgumentn:( argumentTypen )argumentNamen {
 }
 ```
 
+```
+/* function returning the max between two numbers */
+- (int) max:(int) num1 secondNumber:(int) num2 {
+   
+   /* local variable declaration */
+   int result;
+ 
+   if (num1 > num2) {
+      result = num1;
+   } else {
+      result = num2;
+   }
+ 
+   return result; 
+}
+```
+
+```
+@interface SampleClass:NSObject
+/* method declaration */
+- (int)max:(int)num1 andNum2:(int)num2;
+@end
+
+SampleClass *sampleClass = [[SampleClass alloc]init];
+ret = [sampleClass max:a andNum2:b];
+```
+
+### Function Arguments
+
 
