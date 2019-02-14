@@ -70,3 +70,8 @@ Charles E. Leiserson, Ronald L. Rivest et Clifford Stein.
 - [Chapitre 2 - Getting Started](livre_02/chapitre_02.md). Séance du 5 mars 2018.
 - [Chapitre 3 - Growth of Functions](livre_02/chapitre_03.md). Séance du 12 mars 2018.
 - [Chapitre 4 - Divide-and-Conquer](livre_02/chapitre_04.md). Séance du 19 mars 2018.
+
+# À lire
+
+- http://jeffe.cs.illinois.edu/teaching/algorithms/#book
+- https://goalkicker.com/
