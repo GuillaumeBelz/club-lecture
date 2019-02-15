@@ -10,4 +10,5 @@ De Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest et Clifford Stein.
 - [Chapitre 6 - Heapsort](chapitre_06.md). Séance du 16 avril 2018.
 - [Chapitre 7 - Quicksort](chapitre_07.md). Séance du 23 avril 2018.
 - [Chapitre 8 - Sorting in Linear Time](chapitre_08.md). Séance du 30 avril 2018.
-- [Chapitre 9 - Medians and Order Statistics](chapitre_09.md). Prochaine séance le 7 mai 2018.
+- [Chapitre 9 - Medians and Order Statistics](chapitre_09.md).
+- [Chapitre 10](chapitre_10.md).
