@@ -70,6 +70,12 @@ Charles E. Leiserson, Ronald L. Rivest et Clifford Stein.
 - [Chapitre 2 - Getting Started](livre_02/chapitre_02.md). Séance du 5 mars 2018.
 - [Chapitre 3 - Growth of Functions](livre_02/chapitre_03.md). Séance du 12 mars 2018.
 - [Chapitre 4 - Divide-and-Conquer](livre_02/chapitre_04.md). Séance du 19 mars 2018.
+- [Chapitre 5 - Probabilistic Analysis and Randomized Algorithms](livre_02/chapitre_05.md). Séance du 9 avril 2018.
+- [Chapitre 6 - Heapsort](livre_02/chapitre_06.md). Séance du 16 avril 2018.
+- [Chapitre 7 - Quicksort](livre_02/chapitre_07.md). Séance du 23 avril 2018.
+- [Chapitre 8 - Sorting in Linear Time](livre_02/chapitre_08.md). Séance du 30 avril 2018.
+- [Chapitre 9 - Medians and Order Statistics](livre_02/chapitre_09.md).
+- [Chapitre 10 - Structures de données élémentaires](livre_02/chapitre_10.md).
 
 # À lire
 
