@@ -1,3 +1,14 @@
+**Bonne nouvelle, le club de lecture du discord NaN va reprendre, après 2 années de pause.**
+
+**Suite au sondage qui a été fait il y a quelques semaines, le livre choisi est "Computer Architecture: A Quantitative Approach", 6ème édition, de John L. Henness. https://www.amazon.fr/Computer-Architecture-Quantitative-John-Hennessy/dp/0128119055**
+
+**Le club va se réunir toutes les 2 semaines, le mercredi soir à 20h, et chaque séance dure environ 1 heure.**
+
+**Je vous propose qu'on fasse la première séance "avant lecture" mercredi, pour discuter rapidement du livre et de l'organisation du club de lecture.**
+
+**A bientôt !**
+
+
 [Version lecture](https://guillaumebelz.github.io/club-lecture/)
 
 # Club de lecture sur l'informatique
@@ -76,6 +87,32 @@ Charles E. Leiserson, Ronald L. Rivest et Clifford Stein.
 - [Chapitre 8 - Sorting in Linear Time](livre_02/chapitre_08.md). Séance du 30 avril 2018.
 - [Chapitre 9 - Medians and Order Statistics](livre_02/chapitre_09.md).
 - [Chapitre 10 - Structures de données élémentaires](livre_02/chapitre_10.md).
+
+## Computer Architecture : A Quantitative Approach, 6ème édition, de John Hennessy
+
+- Chapitre 1 - Fundamentals of Quantitative Design and Analysis
+- Chapitre 2 - Memory Hierarchy Design
+- Chapitre 3 - Instruction-Level Parallelism and Its Exploitation
+- Chapitre 4 - Data-Level Parallelism in Vector, SIMD, and GPU Architectures
+- Chapitre 5 - Thread-Level Parallelism
+- Chapitre 6 - Warehouse-Scale Computers to Exploit Request-Level and Data-Level Parallelism
+- Chapitre 7 - Domain-Specific Architectures
+- Annexe A - Instruction Set Principles
+- Annexe B - Review of Memory Hierarchy
+- Annexe C - Pipelining: Basic and Intermediate Concepts
+
+Annexes hors version papier
+
+- Annexe D - Storage Systems 
+- Annexe E - Embedded Systems
+- Annexe F - Interconnection Networks
+- Annexe G - Vector Processors in More Depth
+- Annexe H - Hardware and Software for VLIW and EPIC
+- Annexe I - Large-Scale Multiprocessors and Scientific Applications
+- Annexe J - Computer Arithmetic
+- Annexe K - Survey of Instruction Set Architectures
+- Annexe L - Advanced Concepts on Address Translation
+- Annexe M - Historical Perspectives and References
 
 # À lire
 
