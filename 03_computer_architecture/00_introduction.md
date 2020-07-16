@@ -1,5 +1,5 @@
 
-Séance du 15 juillet 2020
+**Séance du 15 juillet 2020**
 
 Points importants :
 
