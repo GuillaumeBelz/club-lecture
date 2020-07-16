@@ -28,4 +28,5 @@ Les annexes seront probablement lues en même temps que les chapitres correspond
   - B : Vue d'ensemble des hiérarchie de mémoire.
   - C : le concept de pipeline.
 
-Les annexes suivantes ne sont pas dans le livre, mais uniquement en pdf.
+Les annexes suivantes ne sont pas dans le livre, mais uniquement en pdf. Vous pouvez les télécharger sur le site de l'éditeur :
+https://www.elsevier.com/books-and-journals/book-companion/9780128119051
