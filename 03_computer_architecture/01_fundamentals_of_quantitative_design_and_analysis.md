@@ -55,15 +55,15 @@ Classification Flynn (1996)
 
 **Instruction set architecture (ISA)**
 
+examples from 80x86, ARMv8, and RISC-V
 
+- classes of ISA : register-memory ISA ou load-store ISA
+- Memory addressing : accès généralement plus rapide si aligné
+- Addressing modes : register, immeditate, displacement
+- Types and sizes of operands : 8b, 16b, 32b etc
+- Operations :  data transfer, arithmetic logical, control (discussed next), and floating point
+- Control flow instructions : conditional branches, unconditional jumps, procedure calls, and returns
+- Encoding an ISA : fixed length (ARM, RISC-V = 32b) and variable length (80x86)
 
-
-
-
-
-
-
-
-
-
+**Genuine Computer Architecture**
 
