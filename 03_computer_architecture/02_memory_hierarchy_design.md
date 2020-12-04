@@ -9,4 +9,7 @@ Principe de localité :
 
 Hériarchie de mémoire à plusieurs niveaux
 
-| t | y |
+Type de mémoire | Taille | Vitesse
+--------------- | ------ | -------
+Registre CPU    | 1k-4k  | 0,2-0,3 ns
+Cache L1        | 
