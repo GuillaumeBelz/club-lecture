@@ -17,7 +17,7 @@ Qui expliquer pourquoi les fonctionnalites du C++ sont concues telles qu'elles l
 > - What you don’t use, you don’t pay for (aka "no distributed fat").
 > - What you do use, you couldn’t hand-code any better.
 
-## Pourquoi le C++ evoluent lentement ?
+## Pourquoi le C++ evolue lentement ?
 
 A cause des demandes contradictoires :
 
