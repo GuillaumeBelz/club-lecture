@@ -6,7 +6,7 @@ C++17 et C++20. Orientation pour le future.
 
 ## Citations et commentaires
 
-**Les principes de base du C++**
+### Les principes de base du C++
 
 Qui expliquer pourquoi les fonctionnalites du C++ sont concues telles qu'elles le sont.
 
@@ -17,7 +17,7 @@ Qui expliquer pourquoi les fonctionnalites du C++ sont concues telles qu'elles l
 > - What you don’t use, you don’t pay for (aka "no distributed fat").
 > - What you do use, you couldn’t hand-code any better.
 
-**Pourquoi le C++ evoluent lentement ?**
+## Pourquoi le C++ evoluent lentement ?
 
 A cause des demandes contradictoires :
 
@@ -26,7 +26,7 @@ A cause des demandes contradictoires :
 > - Add these two essential features now!!
 > - Don’t break (any of) my code!!!
 
-**Une definition originale de new et delete**
+## Une definition originale de new et delete
 
 Ces fonctions ne servent pas juste a "creer et detruire un objet", mais creer un contexte (un ensemble ferme, qui contient un etat - ensemble
 de valeurs/infos -, et qui communique avec d'autres contexts - au moins le context parent) d'execution pour les variables membres.
