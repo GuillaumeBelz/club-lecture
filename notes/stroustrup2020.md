@@ -31,7 +31,8 @@ A cause des demandes contradictoires :
 Ces fonctions ne servent pas juste a "creer et detruire un objet", mais creer un contexte (un ensemble ferme, qui contient un etat - ensemble
 de valeurs/infos -, et qui communique avec d'autres contexts - au moins le context parent) d'execution pour les variables membres.
 
-Exemple de "contextes" : un logiciel dans un systeme d'exploitation, une fonction, un objet, un bloc de code.
+Exemple de "contextes" : un logiciel dans un systeme d'exploitation, un module, un layer dans une architecture multi-couche, 
+une fonction, un objet, un bloc de code.
 
 > From my 1979 lab book:
 > - A "new function" creates the run-time environment for member functions
