@@ -1,7 +1,7 @@
 
-[Version lecture](https://guillaumebelz.github.io/club-lecture/)
+# Club de lecture du discord NaN
 
-# Club de lecture sur l'informatique
+*Rejoindre le [discord NaN](https://discordapp.com/invite/zcWp9sC)*
 
 Bonjour à tous.
 
