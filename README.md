@@ -1,7 +1,7 @@
 
-# Club de lecture du discord NaN
-
 *Rejoindre le [discord NaN](https://discordapp.com/invite/zcWp9sC)*
+
+# Club de lecture du discord NaN
 
 Bonjour à tous.
 
