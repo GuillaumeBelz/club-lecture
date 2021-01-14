@@ -64,4 +64,18 @@ point.mX = 1.0; point.mY = 2.0; point.mZ = 3.0;
 auto [x, y, z] = point;
 ```
 
+- Initialization (C++17) (que `initializer_list<int> ` avec le C++14) :
+
+```cpp
+// Copy list initialization
+auto a = {11}; // initializer_list<int> 
+auto b = {11, 22}; // initializer_list<int>
+
+// Direct list initialization
+auto c {11}; // int
+auto d {11, 22}; // Error, too many elements.
+```
+
+
+## Chapitre 2: Working with Stringsand String Views
 
