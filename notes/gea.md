@@ -3,6 +3,7 @@
 # Part I - Foundations
 ## Chapitre 1: Introduction
 
+Runtime Engine Architecture:
 - hardware, drivers, OS
 - Third-Party SDKs and Middleware
   - Data Structures and Algorithms : boost, folly, loki, EA
@@ -26,3 +27,20 @@
   - Online Multiplayer/Networking
   - Gameplay Foundation Systems: FSM, script, worlds and object models, events, AI
 - Game-Specific Subsystems
+
+Tools and the Asset Pipeline:
+- Digital Content Creation Tools
+- The Asset Conditioning Pipeline
+- The World Editor
+- The Resource Database
+
+## Chapitre 2: Tools of the Trade
+
+- version control
+- compilers, IDE
+- profiling
+- memory leaks/corruption
+
+## Chapitre 3: Fundamentals of Software Engineering for Games
+
+C++ Review and Best Practices
