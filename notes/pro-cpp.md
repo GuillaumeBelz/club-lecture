@@ -14,7 +14,7 @@ using std::cout;     // using declaration
 
 ```cpp
 namespace MyLibraries::Networking::FTP {
-/* ... */
+    /* ... */
 }
 ```
 
@@ -42,3 +42,12 @@ switch (backgroundColor) {
 ```
 
 - Initializer for switch statements (C++17) `switch (<initializer> ; <expression>) { <body> }`
+
+- Function Return Type Deduction (C++14)
+
+```cpp
+auto addNumbers(int number1, int number2)
+{
+    return number1 + number2;
+}
+```
