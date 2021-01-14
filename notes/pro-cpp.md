@@ -51,3 +51,17 @@ auto addNumbers(int number1, int number2)
     return number1 + number2;
 }
 ```
+
+- Structured Bindings (C++17)
+
+```cpp
+std::array<int, 3> values = { 11, 22, 33 };
+auto [x, y, z] = values;
+
+struct Point { double mX, mY, mZ; };
+Point point;
+point.mX = 1.0; point.mY = 2.0; point.mZ = 3.0; 
+auto [x, y, z] = point;
+```
+
+
