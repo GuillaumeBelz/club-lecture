@@ -82,3 +82,7 @@ STATIC_ASSERT(sizeof(float) == 1); // should fail
 ```
 
 **Data, Code and Memory Layout**
+
+**Computer Hardware Fundamentals**
+
+
