@@ -43,4 +43,42 @@ Tools and the Asset Pipeline:
 
 ## Chapitre 3: Fundamentals of Software Engineering for Games
 
-C++ Review and Best Practices
+**C++ Review and Best Practices**
+
+- heritage = is-a, composition = has-a, aggregation = uses-a
+
+**Catching and Handling Errors**
+
+- assert:
+```cpp
+#if ASSERTIONS_ENABLED
+// define some inline assembly that causes a break
+// into the debugger -- this will be different on each // target CPU
+#define debugBreak() asm { int 3 }
+
+// check the expression and fail if it is false 
+#define ASSERT(expr) \
+  if (expr) { } \ 
+  else { \
+    reportAssertionFailure(#expr, __FILE__, __LINE__); \
+    debugBreak(); \ 
+  }
+#else
+#define ASSERT(expr) // evaluates to nothing #endif
+```
+
+- static assert:
+```cpp
+#define _ASSERT_GLUE(a, b)  a ## b
+#define ASSERT_GLUE(a, b) _ASSERT_GLUE(a, b)
+
+#define STATIC_ASSERT(expr) \ 
+  enum { \
+    ASSERT_GLUE(g_assert_fail_, __LINE__) = 1 / (int)(!!(expr)) \
+  }
+  
+STATIC_ASSERT(sizeof(int) == 4); // should pass 
+STATIC_ASSERT(sizeof(float) == 1); // should fail
+```
+
+**Data, Code and Memory Layout**
