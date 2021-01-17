@@ -79,3 +79,36 @@ auto d {11, 22}; // Error, too many elements.
 
 ## Chapitre 2: Working with Strings and String Views
 
+- C++17 Low-Level Numeric Conversions (C++17). Dans `<charconv>`. Fast conversion. N'alloue pas la memoire.
+
+```cpp
+to_chars_result to_chars(char* first, char* last, IntegerT value, int base = 10); 
+from_chars_result from_chars(const char* first, const char* last, IntegerT& value, int base = 10);
+
+struct to_chars_result { 
+    char* ptr;
+    errc ec; 
+};
+
+std::string out(10, ' ');
+auto [ptr, ec] = std::to_chars(out.data(), out.data() + out.size(), 12345); 
+if (ec == std::errc()) { /* Conversion successful. */ }
+```
+
+- `string_view` et `string_view_literals` (C++17)
+
+```cpp
+using namespace std::string_view_literals;
+auto sv = "My string_view"sv;
+```
+
+## Chapitre 3: Coding with Style
+
+
+# PART II - Professional C++ Software Design
+## Chapitre 4: Designing Professional C++ Programs
+## Chapitre 5: Designing with Objects
+
+
+
+
