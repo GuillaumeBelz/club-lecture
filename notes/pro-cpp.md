@@ -77,5 +77,5 @@ auto d {11, 22}; // Error, too many elements.
 ```
 
 
-## Chapitre 2: Working with Stringsand String Views
+## Chapitre 2: Working with Strings and String Views
 
