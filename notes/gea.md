@@ -1,3 +1,9 @@
+note:
+
+- https://github.com/topics/game-engine (categorie game engine sur github)
+- https://github.com/Aredhele (essais de game engine
+- https://github.com/leereilly/games (liste de jeux)
+- https://github.com/kripken/BananaBread (FPS simple)
 
 # Game Engine Architecture, 3ème édition
 # Part I - Foundations
