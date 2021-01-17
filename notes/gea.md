@@ -4,6 +4,7 @@ note:
 - https://github.com/Aredhele (essais de game engine
 - https://github.com/leereilly/games (liste de jeux)
 - https://github.com/kripken/BananaBread (FPS simple)
+- https://github.com/assaultcube/AC (FPS simple)
 
 # Game Engine Architecture, 3ème édition
 # Part I - Foundations
