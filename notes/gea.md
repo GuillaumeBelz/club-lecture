@@ -94,4 +94,4 @@ STATIC_ASSERT(sizeof(float) == 1); // should fail
 
 **Memory Architectures**
 
-
+## Chapitre 4: Parallelism and Concurrent Programming
