@@ -92,4 +92,6 @@ STATIC_ASSERT(sizeof(float) == 1); // should fail
 
 **Computer Hardware Fundamentals**
 
+**Memory Architectures**
+
 
