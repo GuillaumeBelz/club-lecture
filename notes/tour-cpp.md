@@ -41,5 +41,5 @@ C++ Core Guidelines
 
 ## Chapitre 2: User-Defined Types
 
-
+## Chapitre 3: Modularity
 
