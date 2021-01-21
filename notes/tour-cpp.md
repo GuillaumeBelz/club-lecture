@@ -43,3 +43,74 @@ C++ Core Guidelines
 
 ## Chapitre 3: Modularity
 
+**Modules**
+
+```cpp
+// file Vector.cppm:
+module; // this compilation will define a module
+
+// ... here we put stuff that Vector might need for its implementation ...
+export module Vector; // defining the module called "Vector"
+
+export class Vector { 
+public:
+    Vector(int s);
+    double& operator[](int i);
+    int size();
+private:
+    double* elem; // elem points to an array of sz doubles int sz;
+};
+
+Vector::Vector(int s) : elem{new double[s]}, sz{s} // initialize members
+{ 
+}
+
+double& Vector::operator[](int i) {
+    return elem[i]; 
+}
+
+int Vector::size() {
+    return sz; 
+}
+
+export int size(const Vector& v) { return v.size(); }
+
+// file user.cpp:
+import Vector; // get Vector’s interface
+
+#include <cmath> // get the standard-library math function interface including sqrt()
+
+double sqrt_sum(Vector& v) {
+    double sum = 0;
+    for (int i=0; i!=v.size(); ++i)
+        sum+=std::sqrt(v[i]); 
+    return sum; // sum of square roots
+}
+```
+
+```cpp
+// math1.cppm
+export module math1;
+
+export int add(int fir, int sec);
+
+// math1.cpp
+module math1;
+
+int add(int fir, int sec){
+    return fir + sec;
+}
+
+// main1.cpp
+import math1;
+
+int main(){
+   add(2000, 20);
+}
+```
+
+
+
+
+
+
