@@ -109,8 +109,17 @@ int main(){
 }
 ```
 
+**Structured Binding**
 
+```cpp
+struct Entry { string name; int value; };
+Entry read_entry(istream& is);
+auto [n,v] = read_entry(is);
+```
 
+```cpp
+map<string,int> m;
+for (const auto [key,value] : m) ...
+```
 
-
-
+## Chapitre 4: Classes
