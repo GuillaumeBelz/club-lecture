@@ -109,6 +109,20 @@ auto sv = "My string_view"sv;
 ## Chapitre 4: Designing Professional C++ Programs
 ## Chapitre 5: Designing with Objects
 
+- procédurale = qu'est-ce que cette tache fait ?
+- objet = qu'est ce que cet objet fait ?
 
+- class = "la pomme est un fruit" => définie les caractéristiques d'une catégorie d'objets
+- object = "la pomme qui est posée sur la table est un fruit", instance d'une classe, un exemple concret
 
+Philosophie: classe, composants, propriétés, comportements
+
+Note: objet = debut+fin (lifetime, scope) + interactions
+
+object interactions: has-a (aggregation), is-a (deriving, subclassing, extending, and inheriting). 
+Note: dans Game Engine Architecture: "heritage = is-a, composition = has-a, aggregation = uses-a"
+
+heritage = ajouter fonctionnalité, remplacer fonctionnalité, ajouter propriété, (remplacer propriété)
+
+polymorphisme vs réutilisation de code (std::no_copyable)
 
