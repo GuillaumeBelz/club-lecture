@@ -26,3 +26,8 @@ import ...
 
 ## 2. Short history of Qt
 
+QML principes :
+- intuitive UI
+- designer orienté
+- rapid prototype and production
+- easy deployment
