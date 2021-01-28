@@ -44,6 +44,13 @@ QML principes :
 
 
 
+## 48. QObject ownership
+
+- by C++ or JS engine
+- QQmlEngine::setObjectOwnership = QQmlEngine::CppOwnership or QQmlEngine::JavaScriptOwnership
+- default = by C++ or JS
+- **exception : QObject* parent-less returned by `Q_INVOKABLE` functions have JavaScriptOwnership**
+
 ## 49. Creating new elements from C++
 
 - subclass QObject or QQuickItem (C++)
