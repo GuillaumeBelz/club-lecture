@@ -38,5 +38,5 @@ QML principes :
 
 ## 4. Property Binding
 
-
+## 5. Understand QML properties
 
