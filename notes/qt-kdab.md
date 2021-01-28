@@ -31,3 +31,12 @@ QML principes :
 - designer orienté
 - rapid prototype and production
 - easy deployment
+
+## 3. Structure of QML file
+
+- zorder
+
+## 4. Property Binding
+
+
+
