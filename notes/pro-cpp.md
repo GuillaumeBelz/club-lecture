@@ -126,7 +126,7 @@ heritage = ajouter fonctionnalité, remplacer fonctionnalité, ajouter propriét
 
 polymorphisme vs réutilisation de code (std::no_copyable)
 
-
+## Chapitre 6: Designing for Reuse
 
 
 
