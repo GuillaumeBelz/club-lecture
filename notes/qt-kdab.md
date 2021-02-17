@@ -40,6 +40,56 @@ QML principes :
 
 ## 5. Understand QML properties
 
+## 6. Qt Creator: How to Display Scope
+
+## 7. Images
+
+- local file
+- ressource
+- online
+- size
+- `progress`
+- border image, scale modes
+- animated image
+
+## 8. Item transformations
+
+- position relative to parent
+- opacity
+- scaling
+- rotation
+- `transformOrigin`
+
+## 9. Custom transformations
+
+- `transform: list<Transform>`
+- `Rotation`
+- `Scale`
+- `Translate`
+- `Matrix4x4`
+
+## 10. Anchor layout
+
+- for size and position
+- can be used with size
+
+## 11. Binding loop
+
+## 12. Color and Gradients
+
+- named color
+- `"#rrggbb"` ou ``"#aarrggbb"`
+- `Qt.rgba(int, int, int, int)`
+- `Gradient` et `GradientStop`
+
+
+
+
+
+
+
+
+
 
 
 
