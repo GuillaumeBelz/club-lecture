@@ -3,6 +3,26 @@
 # PART I - Introduction to Professional C++
 ## CHAPTER 1: A Crash Course in C++ and the Standard Library
 
+- (C++20) : modules
+
+```cpp
+// avant C++20
+#include <iostream>
+
+// C++20
+import <iostream>;
+```
+
+- (C++20) : `format`
+
+```cpp
+// avant C++20
+std::cout << "There are " << 219 << " ways I love you." << std::endl;
+
+// C++20
+std::cout << std::format("There are {} ways I love you.", 219) << std::endl;
+```
+
 - Vocabulaire :
 
 ```cpp
@@ -13,6 +33,16 @@ using std::cout;     // using declaration
 - Neasted namespace (C++17) :
 
 ```cpp
+// avant C++17
+namespace MyLibraries {
+    namespace Networking {
+        namespace FTP {
+            /* ... */
+        }
+    }
+}
+
+// C++17
 namespace MyLibraries::Networking::FTP {
     /* ... */
 }
@@ -21,6 +51,12 @@ namespace MyLibraries::Networking::FTP {
 - Hexadecimal floating-point literals (C++17) : `0x3.ABCp-10`, `0Xb.cp12l`.
 
 - std::byte (C++17), dans `<cstddef>`
+
+- using enum declaration (C++20) 
+
+```cpp
+using enum PieceType;
+```
 
 - Initializer for if statements (C++17) `if (<initializer> ; <conditional_expression>) { <body> }`
 
