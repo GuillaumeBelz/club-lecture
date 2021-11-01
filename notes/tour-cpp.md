@@ -124,5 +124,5 @@ for (const auto [key,value] : m) ...
 
 ## Chapitre 4: Classes
 
-
+>  By "better", I mean more correct, easier to maintain, more efficient, more elegant, easier to use, easier to read, and easier to reason about.
 
