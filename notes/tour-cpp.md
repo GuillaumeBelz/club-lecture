@@ -126,3 +126,11 @@ for (const auto [key,value] : m) ...
 
 >  By "better", I mean more correct, easier to maintain, more efficient, more elegant, easier to use, easier to read, and easier to reason about.
 
+> A const member function can be invoked for both const and non-const objects, but a non-const member function can only be
+> invoked for non-const objects.
+
+
+
+
+
+
