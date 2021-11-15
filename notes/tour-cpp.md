@@ -129,9 +129,9 @@ for (const auto [key,value] : m) ...
 > A const member function can be invoked for both const and non-const objects, but a non-const member function can only be
 > invoked for non-const objects.
 
-[1] Express ideas directly in code; §4.1; [CG: P.1].
-[11] Avoid ‘‘naked’’ new and delete operations; §4.2.2; [CG: R.11].
-[12] Use resource handles and RAII to manage resources; §4.2.2; [CG: R.1].
+- [1] Express ideas directly in code; §4.1; [CG: P.1].
+- [11] Avoid ‘‘naked’’ new and delete operations; §4.2.2; [CG: R.11].
+- [12] Use resource handles and RAII to manage resources; §4.2.2; [CG: R.1].
 
 
 
