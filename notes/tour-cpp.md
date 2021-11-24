@@ -134,5 +134,10 @@ for (const auto [key,value] : m) ...
 - [12] Use resource handles and RAII to manage resources; §4.2.2; [CG: R.1].
 
 
+## Chapitre 5: Essential operations
+
+## Chapitre 6: Templates
+
+
 
 
