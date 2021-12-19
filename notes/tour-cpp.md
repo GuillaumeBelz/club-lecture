@@ -138,6 +138,26 @@ for (const auto [key,value] : m) ...
 
 ## Chapitre 6: Templates
 
+### 6.2.1 Constrained Template Arguments (C++20)
+
+```cpp
+template<Element T>
+class Vector {
+```
+
+### 6.2.3 Template Argument Deduction (C++17)
+
+```cpp
+pair p = {1,5.2}; // p is a pair<int,double>
+```
+
+### 6.4.3 Compile-Time if (C++17)
+
+```cpp
+if constexpr(expression)
+```
+
+## Chapitre 7: Concepts and Generic Programming
 
 
 
