@@ -159,5 +159,142 @@ if constexpr(expression)
 
 ## Chapitre 7: Concepts and Generic Programming
 
+### 7.2 Concepts (C++20)
+
+```cpp
+template<Sequence Seq, Number Num>
+Num sum(Seq s, Num v)
+
+template<Sequence Seq, Number Num>
+    requires Arithmetic<Value_type<Seq>,Num>
+Num sum(Seq s, Num n);
+
+template<typename Seq, typename Num>
+    requires Sequence<Seq> && Number<Num> && Arithmetic<Value_type<Seq>,Num>
+Num sum(Seq s, Num n);
+
+template<Sequence Seq, Arithmetic<Value_type<Seq>> Num>
+Num sum(Seq s, Num n);
+
+template<Forward_iterator Iter, int n>
+    requires requires(Iter p, int i) { p[i]; p+i; } // Iter has subscripting and addition
+void advance(Iter p, int n) // move p n elements forward
+{
+    p+=n; // a random-access iterator has +=
+}
+```
+
+```cpp
+template<typename T>
+concept Equality_comparable = requires (T a, T b) {
+    { a == b } −> bool; // compare Ts with ==
+    { a != b } −> bool; // compare Ts with !=
+};
+
+static_asser t(Equality_comparable<int>); // succeeds
+
+template<typename S>
+concept Sequence = requires(S a) {
+    typename Value_type<S>; // S must have a value type.
+    typename Iterator_type<S>; // S must have an iterator type.
+
+    { begin(a) } −> Iterator_type<S>; // begin(a) must return an iterator
+    { end(a) } −> Iterator_type<S>; // end(a) must return an iterator
+
+    requires Same_type<Value_type<S>,Value_type<Iterator_type<S>>>;
+    requires Input_iterator<Iterator_type<S>>;
+};
+```
+
+### 7.4 Variadic Templates
+
+```cpp
+void print()
+{
+    // what we do for no arguments: nothing
+}
+
+template<typename T, typename ... Tail>
+void print(T head, Tail... tail)
+{
+    // what we do for each argument, e.g.,
+    cout << head << ' ';
+    print(tail...);
+}
+
+template<typename T, typename ... Tail>
+void print(T head, Tail... tail)
+{
+    cout << head << ' ';
+    if constexpr(siz eof...(tail)> 0)
+        print(tail...);
+}
+```
+
+#### 7.4.1 Fold Expressions
+
+```cpp
+template<Number... T>
+int sum(T... v)
+{
+    return (v + ... + 0); // add all elements of v starting with 0
+}
+
+template<typename ...T>
+void print(T&&... args)
+{
+    (std::cout << ... << args) << '\n'; // pr int all arguments
+}
+
+template<typename Res, typename... Ts>
+vector<Res> to_vector(Ts&&... ts)
+{
+    vector<Res> res;
+    (res.push_back(ts) ...); // no initial value needed
+    return res;
+}
+```
+
+#### 7.4.2 Forwarding Arguments
+
+```cpp
+template<typename Transpor t>
+    requires concepts::InputTranspor t<Transpor t>
+class InputChannel {
+public:
+    // ...
+    InputChannel(Transpor tArgs&&... transportArgs)
+        : _transpor t(std::forward<Transpor tArgs>(transpor tArgs)...)
+    {}
+
+    // ...
+    Transpor t _transpor t;
+};
+```
+
+### 7.6 Advice
+
+- [12] Use variadic templates when you need a function that takes a variable number of arguments of a variety of types; §7.4.
+- [13] Don’t use variadic templates for homogeneous argument lists (prefer initializer lists for that);
+
+
+## Chapitre 8 - Library Overview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
