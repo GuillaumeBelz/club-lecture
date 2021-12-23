@@ -280,6 +280,12 @@ public:
 
 ## Chapitre 8 - Library Overview
 
+## Chapitre 9 - Strings and Regular Expressions
+
+## Chapitre 10 - Input and Output
+
+
+
 
 
 
