@@ -277,7 +277,6 @@ public:
 - [12] Use variadic templates when you need a function that takes a variable number of arguments of a variety of types; §7.4.
 - [13] Don’t use variadic templates for homogeneous argument lists (prefer initializer lists for that);
 
-
 ## Chapitre 8 - Library Overview
 
 ## Chapitre 9 - Strings and Regular Expressions
@@ -288,9 +287,18 @@ public:
 
 ## Chapitre 12 - Algorithms
 
+### 12.7 Concepts (C++20)
 
+```cpp
+template<BoundedRang e R>
+    requires Sortable<R>
+void sort(R& r)
+{
+    return sort(begin(r),end(r));
+}
+```
 
-
+## Chapitre 13 - Utilities
 
 
 
