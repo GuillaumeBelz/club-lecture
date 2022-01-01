@@ -300,15 +300,152 @@ void sort(R& r)
 
 ## Chapitre 13 - Utilities
 
+## Chapitre 14 - Numerics
 
+## Chapitre 15 - Concurrency
 
+### 15.2 Tasks and threads
 
+```cpp
+void f(vector<double>& v); // function: do something with v
 
+struct F { // function object: do something with v
+    vector<double>& v;
+    F(vector<double>& vv) :v{vv} { }
+    void operator()(); // application operator ; §6.3.2
+};
 
+int main()
+{
+    vector<double> some_vec {1,2,3,4,5,6,7,8,9};
+    vector<double> vec2 {10,11,12,13,14};
+    thread t1 {f,ref(some_vec)}; // f(some_vec) executes in a separate thread
+    thread t2 {F{vec2}}; // F(vec2)() executes in a separate thread
+    t1.join();
+    t2.join();
+}
+```
 
+### 15.5 Sharing Data
 
+```cpp
+scoped_lock lck {mutex1,mutex2,mutex3}; // acquire all three locks
+shared_lock lck {mx}; // willing to share access with other readers
+unique_lock lck {mx}; // needs exclusive (unique) access
+```
 
+### 15.6 Waiting for Events
 
+```cpp
+class Message { // object to be communicated
+    // ...
+};
+
+queue<Message> mqueue; // the queue of messages
+condition_variable mcond; // the var iable communicating events
+mutex mmutex; // for synchronizing access to mcond
+
+void consumer()
+{
+    while(true) {
+        unique_lock lck {mmutex}; // acquire mmutex
+        mcond.wait(lck,[] { return !mqueue.empty(); }); // release lck and wait;
+                                                        // re-acquire lck upon wakeup
+                                                        // don’t wake up unless mqueue is non-empty
+        auto m = mqueue.front(); // get the message
+        mqueue .pop();
+        lck.unlock(); // release lck
+        // ... process m ...
+    }
+}
+
+void producer()
+{
+    while(true) {
+        Message m;
+        // ... fill the message ...
+        scoped_lock lck {mmutex}; // protect operations
+        mqueue .push(m);
+        mcond.notify_one(); // notify
+    } // release lock (at end of scope)
+}
+```
+
+### 15.7 Communicating Tasks
+
+```cpp
+void f(promise<X>& px) // a task: place the result in px
+{
+    // ...
+    tr y {
+        X res;
+        // ... compute a value for res ...
+        px.set_value(res);
+    }
+    catch (...) { // oops: couldn’t compute res
+        px.set_exception(current_exception()); // pass the exception to the future’s thread
+    }
+}
+
+void g(future<X>& fx) // a task: get the result from fx
+{
+    // ...
+    tr y {
+        X v = fx.g et(); // if necessary, wait for the value to get computed
+        // ... use v ...
+    }
+    catch (...) { // oops: someone couldn’t compute v
+        // ... handle error ...
+    }
+}
+```
+
+```cpp
+double accum(double∗ beg, double∗ end, double init)
+// compute the sum of [beg:end) starting with the initial value init
+{
+    return accumulate(beg,end,init);
+}
+
+double comp2(vector<double>& v)
+{
+    using Task_type = double(double∗,double∗,double); // type of task
+    
+    packaged_task<Task_type> pt0 {accum}; // package the task (i.e., accum)
+    packaged_task<Task_type> pt1 {accum};
+    
+    future<double> f0 {pt0.get_future()}; // get hold of pt0’s future
+    future<double> f1 {pt1.get_future()}; // get hold of pt1’s future
+    
+    double* first = &v[0];
+    
+    thread t1 {move(pt0),first,first+v.siz e()/2,0}; // star t a thread for pt0
+    thread t2 {move(pt1),first+v.siz e()/2,first+v.siz e(),0}; // star t a thread for pt1
+    
+    // ...
+    
+    return f0.get()+f1.g et(); // get the results
+}
+```
+
+```cpp
+double comp4(vector<double>& v)
+// spawn many tasks if v is large enough
+{
+    if (v.siz e()<10000) // is it wor th using concurrency?
+        return accum(v.begin(),v.end(),0.0);
+        
+    auto v0 = &v[0];
+    auto sz = v.siz e();
+    
+    auto f0 = async(accum,v0,v0+sz/4,0.0); // first quarter
+    auto f1 = async(accum,v0+sz/4,v0+sz/2,0.0); // second quarter
+    auto f2 = async(accum,v0+sz/2,v0+sz∗3/4,0.0); // third quarter
+    auto f3 = async(accum,v0+sz∗3/4,v0+sz,0.0); // four th quar ter
+    
+    return f0.get()+f1.g et()+f2.g et()+f3.g et(); // collect and combine the results
+}
+```
 
 
 
