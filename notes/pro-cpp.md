@@ -338,6 +338,33 @@ import datamodel;
 int main() { DataModel::Address a; }
 ```
 
+- Implementation Partitions
+
+```cpp
+// math.cppm
+export module math; // math module declaration
+export namespace Math
+{
+    double superLog(double z, double b);
+    double lerchZeta(double lambda, double alpha, double s);
+}
+
+// math_helpers.cpp
+module math:details; // math:details implementation partition
+double someHelperFunction(double a) { return /* ... */ ; }
+
+// math.cpp
+module math;
+import :details;
+double Math::superLog(double z, double b) { return /* ... */; }
+double Math::lerchZeta(double lambda, double alpha, double s) { return /* ... */; }
+```
+
+#### HEADER FILES
+
+
+
+
 
 ## PART IV MASTERING ADVANCED FEATURES OF C++
 ### Chapitre 25 - Customizing and Extending the Standard Library
