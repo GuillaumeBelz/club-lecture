@@ -362,9 +362,33 @@ double Math::lerchZeta(double lambda, double alpha, double s) { return /* ... */
 
 #### HEADER FILES
 
+- Querying Existence of Headers (C++17)
 
+```cpp
+__has_include("filename")
+__has_include(<filename>)
+```
 
+```cpp
+#if __has_include(<optional>)
+    #include <optional>
+#elif __has_include(<experimental/optional>)
+    #include <experimental/optional>
+#endif
+```
 
+- FEATURE TEST MACROS FOR CORE LANGUAGE FEATURES (C++20)
+
+```cpp
+__cpp_range_based_for
+__cpp_binary_literals
+__cpp_char8_t
+__cpp_generic_lambdas
+__cpp_consteval
+__cpp_coroutines
+__has_cpp_attribute(fallthrough)
+...
+```
 
 ## PART IV MASTERING ADVANCED FEATURES OF C++
 ### Chapitre 25 - Customizing and Extending the Standard Library
