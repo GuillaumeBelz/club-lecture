@@ -1,7 +1,10 @@
 
 # Professional C++, 5ème édition
-# PART I - Introduction to Professional C++
-## CHAPTER 1: A Crash Course in C++ and the Standard Library
+
+Codes téléchargeables sur www.wiley.com/go/proc++5e
+
+## PART I - Introduction to Professional C++
+### Chapitre 1 - A Crash Course in C++ and the Standard Library
 
 - (C++20) : modules
 
@@ -11,6 +14,27 @@
 
 // C++20
 import <iostream>;
+```
+
+```cpp
+// in employee.cppm
+export module employee;
+
+export struct Employee {
+    char firstInitial;
+    char lastInitial;
+    int employeeNumber;
+    int salary;
+};
+
+// in main.cpp
+import employee;
+
+int main()
+{
+    // Create and populate an employee.
+    Employee anEmployee;
+}
 ```
 
 - (C++20) : `format`
@@ -113,7 +137,7 @@ auto d {11, 22}; // Error, too many elements.
 ```
 
 
-## Chapitre 2: Working with Strings and String Views
+### Chapitre 2 - Working with Strings and String Views
 
 - C++17 Low-Level Numeric Conversions (C++17). Dans `<charconv>`. Fast conversion. N'alloue pas la memoire.
 
@@ -138,12 +162,12 @@ using namespace std::string_view_literals;
 auto sv = "My string_view"sv;
 ```
 
-## Chapitre 3: Coding with Style
+### Chapitre 3 - Coding with Style
 
 
-# PART II - Professional C++ Software Design
-## Chapitre 4: Designing Professional C++ Programs
-## Chapitre 5: Designing with Objects
+## PART II - Professional C++ Software Design
+### Chapitre 4 - Designing Professional C++ Programs
+### Chapitre 5 - Designing with Objects
 
 - procédurale = qu'est-ce que cette tache fait ?
 - objet = qu'est ce que cet objet fait ?
@@ -162,7 +186,192 @@ heritage = ajouter fonctionnalité, remplacer fonctionnalité, ajouter propriét
 
 polymorphisme vs réutilisation de code (std::no_copyable)
 
-## Chapitre 6: Designing for Reuse
+### Chapitre 6: Designing for Reuse
+
+
+### Chapitre 11: ODDS AND ENDS
+
+#### Modules (C++20)
+
+- module interface file `.cppm`
+
+```cpp
+// person.cppm
+module; // Start of the global module fragment, optional
+#include <cstddef> // Include legacy header files, only here
+
+export module person; // Module declaration, begining of module purview
+
+import <string>; // Import declaration
+
+export class Person // Export declaration
+{
+public:
+    Person(std::string firstName, std::string lastName)
+        : m_firstName { std::move(firstName) }
+        , m_lastName { std::move(lastName) } { }
+        
+    const std::string& getFirstName() const { return m_firstName; }
+    const std::string& getLastName() const { return m_lastName; }
+    
+private:
+    std::string m_firstName;
+    std::string m_lastName;
+};
+
+// test.cpp
+import person; // Import declaration for person module
+import <iostream>;
+import <string>; // For operator<< for std::string
+
+using namespace std;
+
+int main()
+{
+    Person person { "Kole", "Webb" };
+    cout << person.getLastName() << ", " << person.getFirstName() << endl;
+}
+```
+
+Export :
+
+```cpp
+export namespace DataModel
+{
+    class Person { /* ... */ };
+    class Address { /* ... */ };
+    using Persons = std::vector<Person>;
+}
+
+export
+{
+    namespace DataModel
+    {
+        class Person { /* ... */ };
+        class Address { /* ... */ };
+        using Persons = std::vector<Person>;
+    }
+}
+```
+
+- module implementation file `.cpp`
+
+```cpp
+// person.cppm
+export module person; // Module declaration
+
+import <string>;
+
+export class Person
+{
+public:
+    Person(std::string firstName, std::string lastName);
+    const std::string& getFirstName() const;
+    const std::string& getLastName() const;
+    
+private:
+    std::string m_firstName;
+    std::string m_lastName;
+};
+
+// person.cpp
+module person; // Module declaration, but without the export keyword
+
+// no import person or string, it's implicit
+
+using namespace std;
+
+Person::Person(string firstName, string lastName)
+    : m_firstName { move(firstName) }, m_lastName { move(lastName) }
+{
+}
+
+const string& Person::getFirstName() const { return m_firstName; }
+const string& Person::getLastName() const { return m_lastName; }
+```
+
+- Submodules
+
+```cpp
+// datamodel.person.cppm
+export module datamodel.person; // datamodel.person submodule
+export namespace DataModel { class Person { /* ... */ }; }
+
+// datamodel.address.cppm
+export module datamodel.address; // datamodel.address submodule
+export namespace DataModel { class Address { /* ... */ }; }
+
+// datamodel.cppm
+export module datamodel; // datamodel module
+export import datamodel.person; // Import and export person submodule
+export import datamodel.address; // Import and export address submodule
+import <vector>;
+export namespace DataModel { using Persons = std::vector<Person>; }
+```
+
+- Module Partitions (modules' structure not visible by users)
+
+```cpp
+// datamodel.person.cppm
+export module datamodel:person; // datamodel:person partition
+export namespace DataModel { class Person { /* ... */ }; }
+
+// datamodel.address.cppm
+export module datamodel:address; // datamodel:address partition
+export namespace DataModel { class Address { /* ... */ }; }
+
+// datamodel.cpp
+module datamodel; // Not datamodel:address!
+import <iostream>;
+using namespace std;
+DataModel::Address::Address() { cout << "Address::Address()" << endl; }
+
+// datamodel.cppm
+export module datamodel; // datamodel module (primary module interface file)
+export import :person; // Import and export person partition
+export import :address; // Import and export address partition
+import <vector>;
+export namespace DataModel { using Persons = std::vector<Person>; }
+
+// main.cpp
+import datamodel;
+int main() { DataModel::Address a; }
+```
+
+
+## PART IV MASTERING ADVANCED FEATURES OF C++
+### Chapitre 25 - Customizing and Extending the Standard Library
+### Chapitre 26 - Advanced Templates
+
+- type, non-type, and template template 
+
+```cpp
+template <typename Container>
+concept ContainerType = requires(Container c)
+{
+    c.resize(1);
+    typename Container::value_type;
+};
+
+export template <typename T, ContainerType Container>
+class Grid
+{
+    ...
+};
+```
+
+
+
+
+### Chapitre 27 - Multithreaded Programming with C++
+
+
+
+
+
+
+
+
 
 
 
