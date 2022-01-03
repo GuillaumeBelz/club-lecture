@@ -409,10 +409,224 @@ class Grid
 {
     ...
 };
+
+Grid<int, deque<optional<int>>> myDequeGrid;
+Grid<int, vector<optional<int>>> myVectorGrid;
+Grid<int> myVectorGrid2 { myVectorGrid };
 ```
 
+- template template parameter
 
+```cpp
+export template <typename T,
+    template <typename E, typename Allocator = std::allocator<E>> class Container = std::vector>
+class Grid
+{
+    ...
+};
+```
 
+- VARIADIC TEMPLATES
+
+```cpp
+template <typename... Types>
+class MyVariadicTemplate { };
+```
+
+```cpp
+void handleValue(int value) { cout << "Integer: " << value << endl; }
+void handleValue(double value) { cout << "Double: " << value << endl; }
+void handleValue(string_view value) { cout << "String: " << value << endl; }
+
+void processValues() // Base case to stop recursion
+{ /* Nothing to do in this base case. */ }
+
+template <typename T1, typename... Tn>
+void processValues(T1 arg1, Tn... args)
+{
+    handleValue(arg1);
+    processValues(args...);
+}
+```
+
+```cpp
+void processValues() // Base case to stop recursion
+{ /* Nothing to do in this base case.*/ }
+
+template <typename T1, typename... Tn>
+void processValues(T1&& arg1, Tn&&... args)
+{
+    handleValue(forward<T1>(arg1));
+    processValues(forward<Tn>(args)...);
+}
+
+int numberOfArguments { sizeof...(args) };
+```
+
+- Variable Number of Mixin Classes
+
+```cpp
+template <typename... Mixins>
+class MyClass : public Mixins...
+{
+public:
+    MyClass(const Mixins&... mixins) : Mixins { mixins }... {}
+    virtual ~MyClass() = default;
+};
+
+MyClass<Mixin1, Mixin2> a { Mixin1 { 11 }, Mixin2 { 22 } };
+```
+
+#### Fold Expressions
+
+- Unary right fold `(pack Ѳ . . .)`
+- Unary left fold `(. . . Ѳ pack)`
+- Binary right fold `(pack Ѳ . . . Ѳ Init)`
+- Binary left fold `(Init Ѳ . . . Ѳ pack)`
+
+```cpp
+template <typename... Tn>
+void processValues(const Tn&... args)
+{
+    (handleValue(args), ...);
+}
+
+template <typename... Values>
+void printValues(const Values&... values)
+{
+    ((cout << values << endl), ...);
+}
+
+template <typename T, typename... Values>
+double sumValues(const T& init, const Values&... values)
+{
+    return (init + ... + values);
+}
+```
+
+#### METAPROGRAMMING
+
+- consteval (C++20)
+
+```cpp
+consteval unsigned long long factorial(unsigned char f)
+{
+    if (f == 0) { return 1; }
+    else { return f * factorial(f - 1); }
+}
+```
+
+- Loop Unrolling
+
+```cpp
+template <int i>
+class Loop
+{
+public:
+    template <typename FuncType>
+    static inline void run(FuncType func) {
+        Loop<i - 1>::run(func);
+        func(i);
+    }
+};
+
+template <>
+class Loop<0>
+{
+public:
+    template <typename FuncType>
+    static inline void run(FuncType /* func */) { }
+};
+
+void doWork(int i) { cout << "doWork(" << i << ")" << endl; }
+
+int main()
+{
+    Loop<3>::run(doWork);
+}
+```
+
+- constexpr if (C++17)
+
+```cpp
+template <typename TupleType, int n = tuple_size<TupleType>::value>
+void tuplePrint(const TupleType& t) {
+    if constexpr (n > 1) {
+        tuplePrint<TupleType, n - 1>(t);
+    }
+    cout << get<n - 1>(t) << endl;
+}
+```
+
+- Using a Compile-Time Integer Sequence with Folding
+
+```cpp
+template <typename Tuple, size_t... Indices>
+void tuplePrintHelper(const Tuple& t, index_sequence<Indices...>)
+{
+    ((cout << get<Indices>(t) << endl), ...);
+}
+
+template <typename... Args>
+void tuplePrint(const tuple<Args...>& t)
+{
+    tuplePrintHelper(t, index_sequence_for<Args...>());
+}
+
+tuple t1 { 167, "Testing"s, false, 2.3 };
+tuplePrint(t1);
+```
+
+- Using enable_if
+
+```cpp
+template <typename T1, typename T2>
+enable_if_t<is_same_v<T1, T2>, bool>
+    checkType(const T1& t1, const T2& t2)
+{
+    cout << format("'{}' and '{}' are the same types.", t1, t2) << endl;
+    return true;
+}
+
+template <typename T1, typename T2>
+enable_if_t<!is_same_v<T1, T2>, bool>
+    checkType(const T1& t1, const T2& t2)
+{
+    cout << format("'{}' and '{}' are different types.", t1, t2) << endl;
+    return false;
+}
+
+int main()
+{
+    checkType(1, 32);
+    checkType(1, 3.01);
+    checkType(3.01, "Test"s);
+}
+```
+
+- Using constexpr if to Simplify enable_if Constructs
+
+```cpp
+template <typename T>
+void callDoit(const T& [[maybe_unused]] t)
+{
+    if constexpr (is_base_of_v<IsDoable, T>) {
+        t.doit();
+    } else {
+        cout << "Cannot call doit()!" << endl;
+    }
+}
+
+template <typename T>
+void callDoit(const T& [[maybe_unused]] t)
+{
+    if constexpr (is_invocable_v<decltype(&IsDoable::doit), T>) {
+        t.doit();
+    } else {
+        cout << "Cannot call doit()!" << endl;
+    }
+}
+```
 
 ### Chapitre 27 - Multithreaded Programming with C++
 
