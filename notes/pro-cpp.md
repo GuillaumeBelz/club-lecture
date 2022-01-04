@@ -630,7 +630,23 @@ void callDoit(const T& [[maybe_unused]] t)
 
 ### Chapitre 27 - Multithreaded Programming with C++
 
+- Race Conditions, data race, `std::hardware_destructive_interference_size`
 
+```cpp
+// pointer function
+thread t1 { counter, 1, 6 }; 
+
+// function object
+thread t1 { Object { 1, 20 } };
+thread t2 { object };
+thread t3 { std::ref(object) };
+
+// lambda
+thread t1 { [](){ ... });
+
+// member function
+ thread t { &Object::foo, &object };
+ ```
 
 
 
