@@ -648,8 +648,78 @@ thread t1 { [](){ ... });
  thread t { &Object::foo, &object };
  ```
 
+#### Automatically Joining Threads
 
+`jthread`:
 
+- automatically joins in its destructor.
+- supports so-called cooperative cancellation. `std::stop_token, std::stop_source, std::get_stop_token, std::get_stop_source`
+
+```cpp
+jthread job { [](stop_token token) {
+    while (!token.stop_requested()) {
+        //...
+    }
+} };
+
+job.request_stop();
+```
+
+#### Copying and Rethrowing Exceptions
+
+```cpp
+exception_ptr current_exception() noexcept;
+[[noreturn]] void rethrow_exception(exception_ptr p);
+template<class E> exception_ptr make_exception_ptr(E e) noexcept;
+```
+
+```cpp
+void doSomeWork()
+{
+    for (int i { 0 }; i < 5; ++i) {
+        cout << i << endl;
+    }
+    cout << "Thread throwing a runtime_error exception..." << endl;
+    throw runtime_error { "Exception from thread" };
+}
+
+void threadFunc(exception_ptr& err)
+{
+    try {
+        doSomeWork();
+    } catch (...) {
+        cout << "Thread caught exception, returning exception..." << endl;
+        err = current_exception();
+    }
+}
+
+void doWorkInThread()
+{
+    exception_ptr error;
+    // Launch thread.
+    thread t { threadFunc, ref(error) };
+    // Wait for thread to finish.
+    t.join();
+    // See if thread has thrown any exception.
+    if (error) {
+        cout << "Main thread received exception, rethrowing it..." << endl;
+        rethrow_exception(error);
+    } else {
+        cout << "Main thread did not receive any exception." << endl;
+    }
+}
+
+int main()
+{
+    try {
+        doWorkInThread();
+    } catch (const exception& e) {
+        cout << "Main function caught: '" << e.what() << "'" << endl;
+    }
+}
+```
+
+#### ATOMIC OPERATIONS LIBRARY
 
 
 
