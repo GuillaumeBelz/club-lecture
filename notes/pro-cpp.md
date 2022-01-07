@@ -721,9 +721,24 @@ int main()
 
 #### ATOMIC OPERATIONS LIBRARY
 
+- `atomic<T>::is_lock_free()`
+- `static atomic<T>::is_always_lock_free`
+- `atomic_flag`
 
+```cpp
+class Foo { private: int m_array[123]; };
+class Bar { private: int m_int; };
 
-
-
+int main()
+{
+    atomic<Foo> f;
+    // Outputs: 1 0
+    cout << is_trivially_copyable_v<Foo> << " " << f.is_lock_free() << endl;
+    
+    atomic<Bar> b;
+    // Outputs: 1 1
+    cout << is_trivially_copyable_v<Bar> << " " << b.is_lock_free() << endl;
+}
+```
 
 
