@@ -804,13 +804,77 @@ int main()
 
 - Waiting on Atomic Variables (C++20)
 
+```cpp
+atomic<int> value { 0 };
 
+thread job { [&value] {
+    cout << "Thread starts waiting." << endl;
+    value.wait(0);
+    cout << "Thread wakes up, value = " << value << endl;
+} };
 
+this_thread::sleep_for(2s);
 
+cout << "Main thread is going to change value to 1." << endl;
+value = 1;
+value.notify_all();
 
+job.join();
+```
 
+#### MUTUAL EXCLUSION
 
+-  Spinlock
 
+```cpp
+atomic_flag spinlock = ATOMIC_FLAG_INIT; // Uniform initialization is not allowed.
+static const size_t NumberOfThreads { 50 };
+static const size_t LoopsPerThread { 100 };
+
+void dowork(size_t threadNumber, vector<size_t>& data)
+{
+    for (size_t i { 0 }; i < LoopsPerThread; ++i) {
+        while (spinlock.test_and_set()) { } // Spins until lock is acquired.
+        // Save to handle shared data...
+        data.push_back(threadNumber);
+        spinlock.clear(); // Releases the acquired lock.
+    }
+}
+
+int main()
+{
+    vector<size_t> data;
+    vector<thread> threads;
+    for (size_t i { 0 }; i < NumberOfThreads; ++i) {
+        threads.push_back(thread { dowork, i, ref(data) });
+    }
+    for (auto& t : threads) {
+        t.join();
+    }
+    cout << format("data contains {} elements, expected {}.\n", data.size(),
+    NumberOfThreads * LoopsPerThread);
+}
+```
+- Non-timed Mutex Classes: std::mutex, std::recursive_mutex, and std::shared_mutex. Functions: lock, try_lock, unlock.
+- Timed Mutex Classes: : std::timed_mutex, std::recursive_timed_mutex, and std::shared_timed_mutex. Functions: try_lock_for(rel_time) and try_lock_until(abs_time)
+
+#### Locks
+
+lock_guard
+
+- `explicit lock_guard(mutex_type& m);`
+- `lock_guard(mutex_type& m, adopt_lock_t);`
+
+unique_lock
+
+- `explicit unique_lock(mutex_type& m);`
+- `unique_lock(mutex_type& m, defer_lock_t) noexcept;`
+- `unique_lock(mutex_type& m, try_to_lock_t);`
+- `unique_lock(mutex_type& m, adopt_lock_t);`
+- `unique_lock(mutex_type& m, const chrono::time_point<Clock, Duration>& abs_time);`
+- `unique_lock(mutex_type& m, const chrono::duration<Rep, Period>& rel_time);`
+
+shared_lock
 
 
 
