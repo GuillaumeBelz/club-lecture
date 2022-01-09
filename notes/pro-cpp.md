@@ -741,4 +741,91 @@ int main()
 }
 ```
 
+```cpp
+bool atomic<T>::compare_exchange_strong(T& expected, T desired);
+
+atomic<int> value { 10 };
+cout << "Value = " << value << endl;
+int fetched { value.fetch_add(4) };
+cout << "Fetched = " << fetched << endl;
+cout << "Value = " << value << endl;
+
+- Atomic Smart Pointers (C++20) `atomic<std::shared_ptr<T>>`
+- Atomic References (C++20) `std::atomic_ref`
+
+- Using Atomic Types
+
+```cpp
+void increment(atomic<int>& counter) // or int
+{
+    for (int i { 0 }; i < 100; ++i) {
+        ++counter;
+        this_thread::sleep_for(1ms);
+    }
+}
+
+int main()
+{
+    atomic<int> counter { 0 }; // or int
+    vector<thread> threads;
+    for (int i { 0 }; i < 10; ++i) {
+        threads.push_back(thread { increment, ref(counter) });
+    }
+    for (auto& t : threads) {
+        t.join();
+    }
+    cout << "Result = " << counter <<endl;
+}
+
+// C++20
+void increment(int& counter)
+{
+    atomic_ref<int> atomicCounter { counter };
+    for (int i { 0 }; i < 100; ++i) {
+        ++atomicCounter;
+        this_thread::sleep_for(1ms);
+    }
+}
+
+int main()
+{
+    int counter { 0 };
+    vector<thread> threads;
+    for (int i { 0 }; i < 10; ++i) {
+        threads.push_back(thread { increment, ref(counter) });
+    }
+    for (auto& t : threads) {
+        t.join();
+    }
+    cout << "Result = " << counter <<endl;
+}
+
+```
+
+- Waiting on Atomic Variables (C++20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
