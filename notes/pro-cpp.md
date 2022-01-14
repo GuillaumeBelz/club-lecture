@@ -860,12 +860,12 @@ int main()
 
 #### Locks
 
-lock_guard
+**lock_guard**: lock a mutex
 
 - `explicit lock_guard(mutex_type& m);`
 - `lock_guard(mutex_type& m, adopt_lock_t);`
 
-unique_lock
+**unique_lock**
 
 - `explicit unique_lock(mutex_type& m);`
 - `unique_lock(mutex_type& m, defer_lock_t) noexcept;`
@@ -874,10 +874,35 @@ unique_lock
 - `unique_lock(mutex_type& m, const chrono::time_point<Clock, Duration>& abs_time);`
 - `unique_lock(mutex_type& m, const chrono::duration<Rep, Period>& rel_time);`
 
-shared_lock
+Acquiring Multiple Locks at Once:
 
+```cpp
+mutex mut1;
+mutex mut2;
+void process()
+{
+    unique_lock lock1 { mut1, defer_lock };
+    unique_lock lock2 { mut2, defer_lock };
+    lock(lock1, lock2);
+    // Locks acquired.
+} // Locks automatically released.
+```
 
+**shared_lock**
 
+**scoped_lock**: same as `lock_guard` with multiple mutex.
+
+```cpp
+mutex mut1;
+mutex mut2;
+void process()
+{
+    scoped_lock locks { mut1, mut2 };
+    // Locks acquired.
+} // Locks automatically released.
+```
+
+#### std::call_once
 
 
 
