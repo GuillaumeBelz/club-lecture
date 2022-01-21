@@ -904,6 +904,99 @@ void process()
 
 #### std::call_once
 
+```cpp
+once_flag g_onceFlag;
+
+void initializeSharedResources()
+{
+    // ... Initialize shared resources to be used by multiple threads.
+    cout << "Shared resources initialized." << endl;
+}
+
+void processingFunction()
+{
+    // Make sure the shared resources are initialized.
+    call_once(g_onceFlag, initializeSharedResources);
+    // ... Do some work, including using the shared resources
+    cout << "Processing" << endl;
+}
+
+int main()
+{
+    // Launch 3 threads.
+    vector<thread> threads { 3 };
+    
+    for (auto& t : threads) {
+        t = thread { processingFunction };
+    }
+    
+    // Join on all threads
+    for (auto& t : threads) {
+        t.join();
+    }
+}
+```
+
+#### Examples Using Mutual Exclusion Objects
+
+- **Synchronized Streams (C++20)**. `std::basic_osyncstream` : synchrone output stream.
+
+```cpp
+class Counter
+{
+public:
+    Counter(int id, int numIterations)
+        : m_id { id }, m_numIterations { numIterations } { }
+        
+    void operator()() const
+    {
+        for (int i { 0 }; i < m_numIterations; ++i) {
+            osyncstream { cout } << "Counter "
+                << m_id << " has value " << i << endl;
+        }
+    }
+    
+private:
+    int m_id;
+    int m_numIterations;
+};
+
+// Or:
+void operator()() const
+{
+    for (int i { 0 }; i < m_numIterations; ++i) {
+        osyncstream syncedCout { cout };
+        syncedCout << "Counter " << m_id << " has value " << i << endl;
+    }
+}
+```
+
+- **Using Mutex**
+
+```cpp
+class Counter
+{
+public:
+    Counter(int id, int numIterations)
+        : m_id { id }, m_numIterations { numIterations } { }
+        
+    void operator()() const
+    {
+        for (int i { 0 }; i < m_numIterations; ++i) {
+            lock_guard lock { ms_mutex };
+            cout << "Counter " << m_id << " has value " << i << endl;
+        }
+    }
+    
+private:
+    int m_id;
+    int m_numIterations;
+    inline static mutex ms_mutex;
+};
+```
+
+
+
 
 
 
