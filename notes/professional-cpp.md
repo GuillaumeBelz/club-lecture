@@ -995,7 +995,49 @@ private:
 };
 ```
 
+- **Using Timed Locks**
 
+```cpp
+class Counter
+{
+public:
+    Counter(int id, int numIterations)
+        : m_id { id }, m_numIterations { numIterations } { }
+        
+    void operator()() const
+    {
+        for (int i { 0 }; i < m_numIterations; ++i) {
+        unique_lock lock { ms_timedMutex, 200ms };
+            if (lock) {
+                cout << "Counter " << m_id << " has value " << i << endl;
+            } else {
+                // Lock not acquired in 200ms, skip output.
+            }
+        }
+    }
+    
+private:
+    int m_id;
+    int m_numIterations;
+    inline static timed_mutex ms_timedMutex;
+};
+```
+
+- **Double-Checked Locking** (anti pattern)
+- **magic static**
+
+#### CONDITION VARIABLES
+
+- `std::condition_variable`
+- `std::condition_variable_any`
+
+Methods:
+
+- `notify_one();`
+- `notify_all();`
+- `wait(unique_lock<mutex>& lk);`
+- `wait_for(unique_lock<mutex>& lk, const chrono::duration<Rep, Period>& rel_time);`
+- `wait_until(unique_lock<mutex>& lk, const chrono::time_point<Clock, Duration>& abs_time);`
 
 
 
