@@ -1039,6 +1039,81 @@ Methods:
 - `wait_for(unique_lock<mutex>& lk, const chrono::duration<Rep, Period>& rel_time);`
 - `wait_until(unique_lock<mutex>& lk, const chrono::time_point<Clock, Duration>& abs_time);`
 
+#### LATCHES (C++20)
+
+```cpp
+latch startLatch { 1 };
+vector<jthread> threads;
+
+for (int i { 0 }; i < 10; ++i) {
+    threads.push_back(jthread { [&startLatch] {
+        // Do some initialization... (CPU bound)
+        
+        // Wait until the latch counter reaches zero.
+        startLatch.wait();
+        
+        // Process data...
+    } });
+}
+
+// Load data... (I/O bound)
+
+// Once all data has been loaded, decrement the latch counter
+// which then reaches zero and unblocks all waiting threads.
+startLatch.count_down();
+```
+
+#### BARRIERS (C++20)
+
+```cpp
+void completionFunction() noexcept { /* ... */ }
+
+int main()
+{
+    const size_t numberOfThreads { 4 };
+    barrier barrierPoint { numberOfThreads, completionFunction };
+    vector<jthread> threads;
+    
+    for (int i { 0 }; i < numberOfThreads; ++i) {
+        threads.push_back(jthread { [&barrierPoint] (stop_token token) {
+            while (!token.stop_requested()) {
+                // ... Do some calculations ...
+                // Synchronize with other threads.
+                barrierPoint.arrive_and_wait();
+            }
+        } });
+    }
+}
+```
+
+#### SEMAPHORES (C++20)
+
+- `std::counting_semaphore` and `std::binary_semaphore` 
+
+Methods:
+- `acquire()`
+- `try_acquire()`
+- `try_acquire_for()`
+- `try_acquire_until()`
+- `release()`
+
+```cpp
+counting_semaphore semaphore { 4 };
+vector<jthread> threads;
+
+for (int i { 0 }; i < 10; ++i) {
+    threads.push_back(jthread { [&semaphore] {
+        semaphore.acquire();
+        // ... Slot acquired ... (at most 4 threads concurrently)
+        semaphore.release();
+    } });
+}
+```
+
+#### Futures
+
+>  a promise is the input side for a result, a future is the output side
+
 
 
 
