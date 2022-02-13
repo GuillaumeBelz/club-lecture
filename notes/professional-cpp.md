@@ -1114,7 +1114,7 @@ for (int i { 0 }; i < 10; ++i) {
 
 >  a promise is the input side for a result, a future is the output side
 
-```
+```cpp
 future<T> myFuture { ... }; // Is discussed later.
 T result { myFuture.get() };
 
@@ -1125,7 +1125,7 @@ if (myFuture.wait_for(0)) { // Value is available.
 }
 ```
 
-```
+```cpp
 void doWork(promise<int> thePromise)
 {
     // ... Do some work ...
@@ -1157,7 +1157,7 @@ int main()
 
 - `std::packaged_task`
 
-```
+```cpp
 int calculateSum(int a, int b) { return a + b; }
 
 int main()
@@ -1187,7 +1187,7 @@ int main()
 
 - `launch::async`, `launch::deferred`, `launch::async | launch::deferred`
 
-```
+```cpp
 int calculate() { return 123; }
 int main()
 {
@@ -1206,6 +1206,186 @@ int main()
 - note: `async(calculate);` no capture of future = blocking call (blocked in the destructor of the temporary future)
 
 #### Exception Handling
+
+```cpp
+int calculate()
+{
+    throw runtime_error { "Exception thrown from calculate()." };
+}
+
+int main()
+{
+    // Use the launch::async policy to force asynchronous execution.
+    auto myFuture { async(launch::async, calculate) };
+    
+    // Do some more work...
+    
+    // Get the result.
+    try {
+        int result { myFuture.get() };
+        cout << result << endl;
+    } catch (const exception& ex) {
+        cout << "Caught exception: " << ex.what() << endl;
+    }
+}
+```
+
+#### std::shared_future
+
+copy constructible, many calls to `get()` possible
+
+```cpp
+promise<void> thread1Started, thread2Started;
+
+promise<int> signalPromise;
+auto signalFuture { signalPromise.get_future().share() };
+//shared_future<int> signalFuture { signalPromise.get_future() };
+
+auto function1 { [&thread1Started, signalFuture] {
+    thread1Started.set_value();
+    // Wait until parameter is set.
+    int parameter { signalFuture.get() };
+    // ...
+} };
+
+auto function2 { [&thread2Started, signalFuture] {
+    thread2Started.set_value();
+    // Wait until parameter is set.
+    int parameter { signalFuture.get() };
+    // ...
+} };
+
+// Run both lambda expressions asynchronously.
+// Remember to capture the future returned by async()!
+auto result1 { async(launch::async, function1) };
+auto result2 { async(launch::async, function2) };
+
+// Wait until both threads have started.
+thread1Started.get_future().wait();
+thread2Started.get_future().wait();
+
+// Both threads are now waiting for the parameter.
+// Set the parameter to wake up both of them.
+signalPromise.set_value(42);
+```
+
+#### EXAMPLE: MULTITHREADED LOGGER CLASS
+
+```cpp
+export class Logger
+{
+public:
+    // Starts a background thread writing log entries to a file.
+    Logger();
+    
+    // Prevent copy construction and assignment.
+    Logger(const Logger& src) = delete;
+    Logger& operator=(const Logger& rhs) = delete;
+    
+    // Add log entry to the queue.
+    void log(std::string entry);
+    
+private:
+    // The function running in the background thread.
+    void processEntries();
+    
+    // Helper method to process a queue of entries.
+    void processEntriesHelper(std::queue<std::string>& queue, std::ofstream& ofs) const;
+    
+    // Mutex and condition variable to protect access to the queue.
+    std::mutex m_mutex;
+    std::condition_variable m_condVar;
+    std::queue<std::string> m_queue;
+    
+    // The background thread.
+    std::thread m_thread;
+};
+
+Logger::Logger()
+{
+    // Start background thread.
+    m_thread = thread { &Logger::processEntries, this };
+}
+
+void Logger::log(string entry)
+{
+    // Lock mutex and add entry to the queue.
+    unique_lock lock { m_mutex };
+    m_queue.push(move(entry));
+    
+    // Notify condition variable to wake up thread.
+    m_condVar.notify_all();
+}
+
+void Logger::processEntries()
+{
+    // Open log file.
+    ofstream logFile { "log.txt" };
+    if (logFile.fail()) {
+        cerr << "Failed to open logfile." << endl;
+        return;
+    }
+
+    // Create a lock for m_mutex, but do not yet acquire a lock on it.
+    unique_lock lock { m_mutex, defer_lock };
+    
+    // Start processing loop.
+    while (true) {
+        lock.lock();
+        // Wait for a notification.
+        m_condVar.wait(lock);
+        
+        // Condition variable is notified, so something might be in the queue.
+        // While we still have the lock, swap the contents of the current queue
+        // with an empty local queue on the stack.
+        queue<string> localQueue;
+        localQueue.swap(m_queue);
+        
+        // Now that all entries have been moved from the current queue to the
+        // local queue, we can release the lock so other threads are not blocked
+        // while we process the entries.
+        lock.unlock();
+        
+        // Process the entries in the local queue on the stack. This happens after
+        // having released the lock, so other threads are not blocked anymore.
+        processEntriesHelper(localQueue, logFile);
+    }
+}
+
+void Logger::processEntriesHelper(queue<string>& queue, ofstream& ofs) const
+{
+while (!queue.empty()) {
+ofs << queue.front() << endl;
+queue.pop();
+}
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
