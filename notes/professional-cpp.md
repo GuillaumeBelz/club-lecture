@@ -749,6 +749,7 @@ cout << "Value = " << value << endl;
 int fetched { value.fetch_add(4) };
 cout << "Fetched = " << fetched << endl;
 cout << "Value = " << value << endl;
+```
 
 - Atomic Smart Pointers (C++20) `atomic<std::shared_ptr<T>>`
 - Atomic References (C++20) `std::atomic_ref`
