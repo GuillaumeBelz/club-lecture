@@ -1445,16 +1445,17 @@ int main()
 
 ### Chapitre 28 - Maximizing Software Engineering Methods
 
+- software life cycle model
+- software engineering methodologies
 
+needs: failures, bugs, writing a software is hard.
 
+#### SOFTWARE LIFE CYCLE MODELS
 
-
-
-
-
-
-
-
+- The Waterfall Model: Planning -> Design -> Implementation -> Unit Testing -> Subsystem Testing -> Integration Testing -> Evaluation
+- Sashimi Model, same as waterfall with overlap
+- Spiral-like Models
+- Agile
 
 
 
