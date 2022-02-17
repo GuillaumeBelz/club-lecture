@@ -1454,11 +1454,24 @@ needs: failures, bugs, writing a software is hard.
 
 - The Waterfall Model: Planning -> Design -> Implementation -> Unit Testing -> Subsystem Testing -> Integration Testing -> Evaluation
 - Sashimi Model, same as waterfall with overlap
-- Spiral-like Models
+- Spiral-like Models (iterative processes)
+  - Discovery = discovering requirements, determining objectives, determining alternatives (design alternatives, reuse, buying third-party libraries, and so on), and determining any constraints. 
+  - Evaluation phase = implementation alternatives are evaluated, risks are analyzed, and prototype options are considered
+  - Development.
+  - Analysis and planning.
 - Agile
+  - Individuals and interactions over processes and tools
+  - Working software over comprehensive documentation
+  - Customer collaboration over contract negotiation
+  - Responding to change over following a plan
 
+#### SOFTWARE ENGINEERING METHODOLOGIES
 
+How to do, not what to do?
 
+- The Unified Process (UP)
+- The Rational Unified Process (RUP)
+- Scrum
 
 
 
