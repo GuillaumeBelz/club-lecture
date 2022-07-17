@@ -1,2 +1,0 @@
-
-# C++ Concurrency in Action
